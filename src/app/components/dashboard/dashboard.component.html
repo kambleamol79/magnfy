@@ -15,7 +15,7 @@
                 <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 col-7">
                     <div class="form-group mb-0">
                       <select #myArticleSelect class="form-control" (change)="sortArticleData(myArticleSelect.value)">
-                        <option value="desc">Descending</option>
+                        <option value="desc">Asending</option>
                         <option value="asc" selected>Asending</option>
                       </select>
 
@@ -145,7 +145,7 @@
                     <div class="form-group mb-0">
                       <!-- <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Rating</label> -->
                       <select #mySelect class="form-control" (change)="getTrendingUsersByOrder(mySelect.value)">
-                        <option value="desc" selected>Descending</option>
+                        <option value="desc" selected>Rating</option>
                         <option value="asc">Asending</option>
                       </select>
                     </div>

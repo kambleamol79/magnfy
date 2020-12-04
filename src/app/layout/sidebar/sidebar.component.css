@@ -1,0 +1,62 @@
+.social-media-icons{
+	padding: 10px 35px;
+    margin: 10px 15px 0;
+}
+.social-media-sidebar{
+	position: absolute;
+	width: 100%;
+	bottom: 30px;
+}
+.sidebar-wrapper{
+	overflow: hidden;
+}
+.sidebar-wrapper ul > li.active a{
+	background: transparent;
+    border: none;
+    border-radius: unset;
+    box-shadow: unset;
+    color: #fff;
+}
+.sidebar-wrapper ul > li.active a:hover{
+	background-color: unset;
+}
+.sidebar-wrapper ul > li.active {
+    position: relative;
+    background-image: linear-gradient(to right, rgba(255,0,0,0),rgb(255, 248, 244,0.5));
+}
+.sidebar-wrapper ul > li{
+	position: relative;
+}
+.sidebar-wrapper ul > li:hover{
+	position: relative;
+    background-image: linear-gradient(to right, rgba(255,0,0,0),rgb(255, 248, 244,0.5));
+}
+.sidebar-wrapper ul > li > a{
+	margin:0px;
+	padding: 17px 20px;
+}
+
+.sidebar-wrapper ul > li.active::after {
+    content: '';
+    background: #BC3D00;
+    height: 100%;
+    width: 4px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top:0;
+}
+.sidebar-wrapper ul > li:hover::after {
+    content: '';
+    background: #BC3D00;
+    height: 100%;
+    width: 4px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top:0;
+}
+
+.sidebar-wrapper{
+	position: relative;
+}

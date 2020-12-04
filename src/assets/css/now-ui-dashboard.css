@@ -5276,7 +5276,7 @@ img {
 .off-canvas-sidebar .nav li:hover:not(.active) > a,
 .sidebar .nav li:focus:not(.active) > a,
 .sidebar .nav li:hover:not(.active) > a {
-    background-color: hsla(0, 0%, 100%, 0.1);
+    /*background-color: hsla(0, 0%, 100%, 0.1);*/
 }
 .off-canvas-sidebar .nav li:focus:not(.active) > a i,
 .off-canvas-sidebar .nav li:hover:not(.active) > a i,
@@ -5382,7 +5382,7 @@ img {
     opacity: 1;
     transform: translateZ(0);
 }
-.off-canvas-sidebar .logo:after,
+/*.off-canvas-sidebar .logo:after,
 .sidebar .logo:after {
     content: "";
     position: absolute;
@@ -5391,7 +5391,7 @@ img {
     height: 1px;
     width: calc(100% - 30px);
     background-color: hsla(0, 0%, 100%, 0.5);
-}
+}*/
 .off-canvas-sidebar .logo p,
 .sidebar .logo p {
     float: left;
