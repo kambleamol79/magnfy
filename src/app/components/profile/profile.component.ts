@@ -3,15 +3,10 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { SocialAuthService, FacebookLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { FacebookService, AuthService, AppService } from '../../_services';
-import Twitter from 'twitter-lite';
 import { Router} from '@angular/router';
 import { trimValidator } from '../../_helpers';
 import { environment } from '../../../environments/environment';
 
-const client = new Twitter({
-  consumer_key: '2HwTfB9qBjWH0AN4bMsU28lbD',
-  consumer_secret: '6AmYUBsdhhYAJzhf7huAzK3mewivWiImth5csohWBT0LHnW6c7',
-});
 
 @Component({
   selector: 'app-profile',
