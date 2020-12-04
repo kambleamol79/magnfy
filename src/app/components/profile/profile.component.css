@@ -1,0 +1,57 @@
+.content{
+    padding: 0 30px 30px;
+    min-height: calc(100vh - 123px);
+    margin-top: -30px;
+}
+
+.user-profile-form{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+.user-profile-form img{
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 75px;
+}
+.user-profile-form .fileinput-new.thumbnail{
+    box-shadow: unset;
+}
+.user-profile-form .btn.btn-primary.btn-round.btn-file{
+    margin-left: 30px;
+}
+.social-media-btns .btn{
+    width: 50%;
+    text-align: center;
+}
+.card {
+    height: 350px;
+}
+.btn-orange{
+    background-color: #f96332;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+.user-content-det p{
+    font-size: 18px;
+    color: #2F2F2F;
+    font-weight: 500;
+}
+.user-content-det span{
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+.user-content-det{
+    height: auto;
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}

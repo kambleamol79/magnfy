@@ -1,0 +1,167 @@
+.content{
+    padding: 0 30px 30px;
+    min-height: calc(100vh - 123px);
+    margin-top: -30px;
+}
+
+/*.card-user{
+    max-height: 400px;
+}*/
+.matchheight{
+	height: 550px;
+    overflow-y: scroll;
+}
+.card-user .image {
+    max-height: 200px;
+    min-height: 200px;
+}
+
+.all-posts{
+    display: inline-flex;
+    max-height: 300px;
+    width: auto;
+}
+
+
+.content-details{
+	margin-top: 65px;
+}
+
+.activity-section h1{
+	font-size: 14px;
+	color: #000;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+.activity-section select{
+	border:none;
+}
+.activity-section .card .card-header {
+	padding: 10px 15px;
+    border-bottom: 1px solid #EEF0F6;
+}
+.activity-section .card .card-body p{
+	font-size: 14px;
+	color: #2F2F2F;
+	font-weight: 600;
+}
+.activity-section .card .card-body img{
+	border-radius: 13px;
+}
+
+.activity-feed h1{
+	font-size: 14px;
+	color: #000;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+.activity-feed select{
+	border:none;
+}
+.activity-feed .card .card-header {
+	padding: 10px 15px;
+    border-bottom: 1px solid #EEF0F6;
+}
+.activity-feed .activity-details h3{
+	margin:0px 0;
+	font-size: 14px;
+	color: #2F2F2F;
+	font-weight: 500;
+}
+.activity-feed .activity-details span{
+	font-size: 12px;
+	color: #A6ACBE;
+	font-weight: 500;
+}
+.activity-feed .card .card-body{
+	border-bottom: 1px solid #EEF0F6;
+}
+.activity-feed .card .card-body p{
+	font-size: 14px;
+	color: #000000;
+}
+.activity-feed .card .card-body .attached{
+	font-size: 14px;
+	color: #578FC2;
+	font-weight: 500;
+}
+
+
+.trending-user h1{
+	font-size: 14px;
+	color: #000;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+.trending-user select{
+	border:none;
+}
+.trending-user .card .card-header {
+	padding: 10px 15px;
+    border-bottom: 1px solid #EEF0F6;
+}
+.trending-user ul{
+	list-style: none;
+	padding-left: 0px;
+}
+.trending-user ul > li{
+	list-style: none;
+	margin: 15px 0;
+}
+.trending-user ul > li span{
+	font-size: 14px;
+	color: #A6ACBE;
+	font-weight: 500;
+}
+.trending-user ul > li p{
+	font-size: 14px;
+	color: #000000;
+	font-weight: 600;
+}
+
+
+.account-activity h1{
+	font-size: 14px;
+	color: #000;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+.account-activity select{
+	border:none;
+}
+.account-activity .card .card-header {
+	padding: 10px 15px;
+    border-bottom: 1px solid #EEF0F6;
+}
+.account-activity ul{
+	list-style: none;
+	padding-left: 0px;
+}
+.account-activity ul > li{
+	list-style: none;
+	margin:15px 0;
+}
+.account-activity ul > li h6{
+	font-size: 14px;
+	color: #A6ACBE;
+	font-weight: 500;
+	margin-bottom: 0px;
+}
+.account-activity ul > li p{
+	font-size: 16px;
+	color: #000;
+	font-weight: 600;
+}
+.account-activity ul > li p > span{
+	color:#A6ACBE;
+}  
+
+.dropdown-toggle:after {
+    color: #C9CED6;
+}
+.trending-user .form-group .form-control,.trending-user .input-group .form-control {
+    padding: 10px 0px;
+}
+.activity-section .form-group .form-control,.activity-section .input-group .form-control {
+    padding: 10px 0px;
+}

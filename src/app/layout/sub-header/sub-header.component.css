@@ -1,0 +1,82 @@
+.panel-header{
+	display: none;
+}
+.main-header{
+	background-color: #fff !important;
+	margin-bottom: 0px;
+}
+.navbar.navbar-transparent {
+    background-color: #FFF !important;
+}
+.main-header ul > li h3{
+	font-size: 14px;
+	color: #000000;
+	font-weight: 500;
+	margin-bottom: 0px;
+	text-transform: capitalize;
+}
+.main-header ul > li p{
+	font-size: 12px;
+	color: #A6ACBE;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+.search-form-on-header{
+	position: relative;
+}
+.search-form-on-header img{
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+.search-form-on-header input{
+	font-size: 16px;
+	color: #A6ACBE;
+	font-weight: 500;
+	border: none;
+    padding-left: 40px;
+}
+.main-header{
+	padding-top: 5px;
+    padding-bottom: 5px;
+}
+.dropdown-toggle::after {
+    display: inline-block;
+    vertical-align: .255em;
+    content: "";
+    border-top: UNSET;
+    border-right: UNSET;
+    border-bottom: 0;
+    border-left: UNSET;
+    content: '>';
+    font: 17px "Consolas", monospace;
+    color: #333;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: -3px;
+    top: 16px;
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.avatar {
+    font-size: 1rem;
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    border-radius: .375rem;
+    background-color: #adb5bd;
+    /*align-items: center;*/
+    justify-content: center;
+}
+
+.avatar.rounded-circle img, .rounded-circle {
+    border-radius: 50%!important;
+}

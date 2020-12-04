@@ -1,0 +1,11 @@
+<div class="sidebar" data-color="orange" *ngIf="auth">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+</div>
+<div id="main-panel" [ngClass]="{ 'not-auth': !auth, 'main-panel': auth}">
+    <app-sub-header *ngIf="auth"></app-sub-header>
+    <alert *ngIf="!auth"></alert>
+    <router-outlet></router-outlet>
+    <app-footer *ngIf="auth"></app-footer>
+</div>
+

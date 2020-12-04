@@ -1,0 +1,285 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+  <div class="row">
+   
+    <div class="col-md-12">
+        <alert></alert>
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Enter name of your interest">
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary btn-round" (click)="openModal(step1)">Add new interest</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">People</h4>
+                </div>
+                <div class="card-body" *ngIf="personInterests.length > 0">
+                    <div class="typography-line" *ngFor="let personInterest of personInterests">
+                        <span>{{ personInterest.name }} {{ personInterest.email }}</span>
+                        <div class="button-container">
+                            <button href="#" class="btn btn-neutral btn-icon btn-round">
+                                <i class="fab fa-facebook-square"></i>
+                            </button>
+                            <button href="#" class="btn btn-neutral btn-icon btn-round">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button href="#" class="btn btn-neutral btn-icon btn-round">
+                                <i class="fab fa-instagram"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" *ngIf="personInterests.length <= 0">
+                    <span>No records found</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Channel & company</h4>
+                </div>
+                <div class="card-body" *ngIf="businessInterests.length > 0">
+                    <div class="typography-line"  *ngFor="let businessInterest of businessInterests">
+                        <span>{{ businessInterest.name }} {{ businessInterest.email }}</span>
+                        <div class="button-container">
+                            <button href="#" class="btn btn-neutral btn-icon btn-round">
+                                <i class="fab fa-facebook-square"></i>
+                            </button>
+                            <button href="#" class="btn btn-neutral btn-icon btn-round">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button href="#" class="btn btn-neutral btn-icon btn-round">
+                                <i class="fab fa-instagram"></i>
+                            </button>
+                        </div>
+                      </div>
+                </div>
+                <div class="card-body" *ngIf="businessInterests.length <= 0">
+                    <span>No records found</span>
+                </div>
+              </div>
+            </div>
+        </div>
+            
+        <ng-template #step1>
+            <form [formGroup]="InterestForm1" (ngSubmit)="confirm(step2)">
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Add New Interest</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" >
+                    <div class="row" style="display: inline-flex;">
+                    <div class="card ">
+                    
+                    <div class="card-body ">
+                        <div class="form-horizontal">
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">Magnfy Name</label>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                                    <div *ngIf="submitted1 && f1.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.name.errors.required ">Name is required</div>
+                                        <div *ngIf="f1.name.errors.trimError">Please enter valid name</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">Website</label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="website" name="website" formControlName="website">
+                                    <div *ngIf="submitted1 && f1.website.errors" class="invalid-feedback" >
+                                        <div *ngIf="f1.website.errors.required">Website is required</div>
+                                        <div *ngIf="f1.website.errors.trimError">Please enter valid website</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">City</label>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                                    <div *ngIf="submitted1 && f1.city.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.city.errors.required">City is required</div>
+                                        <div *ngIf="f1.city.errors.trimError">Please enter valid city</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">Industry</label>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="industry" name="industry" formControlName="industry">
+                                    <div *ngIf="submitted1 && f1.industry.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.industry.errors.required">Industry is required</div>
+                                        <div *ngIf="f1.industry.errors.trimError">Please enter valid industry</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="card " style="margin-left: 10px;">
+                    
+                    <div class="card-body ">
+                        <div class="form-horizontal">
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">Facebook ID</label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="facebook_id" name="facebook_id" formControlName="facebook_id">
+                                    <div *ngIf="submitted1 && f1.facebook_id.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.facebook_id.errors.required">Facebook ID is required</div>
+                                        <div *ngIf="f1.facebook_id.errors.trimError">Please enter valid facebook id</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">Instagram ID</label>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="instagram_id" name="instagram_id" formControlName="instagram_id">
+                                    <div *ngIf="submitted1 && f1.instagram_id.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.instagram_id.errors.required">Instagram ID is required</div>
+                                        <div *ngIf="f1.instagram_id.errors.trimError">Please enter valid instagram id</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">Twitter ID</label>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="twitter_id" name="twitter_id" formControlName="twitter_id">
+                                    <div *ngIf="submitted1 && f1.twitter_id.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.twitter_id.errors.required">Twitter ID is required</div>
+                                        <div *ngIf="f1.twitter_id.errors.trimError">Please enter valid twitter id</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                    <div class="row">
+                        <div class="container">
+                            <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+
+                            <button type="submit" class="btn btn-primary" >Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+
+        <ng-template #step2>
+            <form [formGroup]="InterestForm2" (ngSubmit)="onSubmit()">
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Add New Interest</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >
+              <div class="row" style="display: inline-flex;">
+              <div class="card ">
+                
+                <div class="alert alert-danger" *ngIf="showError">
+                    <button type="button" aria-hidden="true" class="close" (click)="closeError();">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                    <span><b> Failed - </b> {{ errorMessage }}</span>
+                </div>
+
+                <div class="card-body ">
+                  <div class="form-horizontal">
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Recipient</label>  
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                                <div *ngIf="submitted2 && f2.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.email.errors.required">Email is required</div>
+                                    <div *ngIf="f2.email.errors.pattern">Enter valid email address</div>
+                                    <div *ngIf="f1.email.errors.trimError">Please enter valid email address</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Subject</label>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="subject" name="subject" formControlName="subject">
+                                <div *ngIf="submitted2 && f2.subject.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.subject.errors.required">Subject is required</div>
+                                    <div *ngIf="f1.subject.errors.trimError">Please enter valid subject</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <label class="col-md-3 col-form-label">Message</label>
+  
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <textarea rows="4" cols="80" class="form-control" placeholder="" id="message" name="message" formControlName="message"></textarea>
+                                <div *ngIf="submitted2 && f2.message.errors" class="invalid-feedback">
+                                    <div *ngIf="f2.message.errors.required">Message is required</div>
+                                    <div *ngIf="f1.message.errors.trimError">Please enter valid message</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+              <div class="row">
+                  <div class="container">
+                      <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+  
+                      <button type="submit" class="btn btn-primary" >Send</button>
+                  </div>
+              </div>
+            </div>
+            </form>
+          </ng-template>
+
+    </div>
+  </div>
+</div>
