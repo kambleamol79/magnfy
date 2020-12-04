@@ -1,8 +1,8 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://127.0.0.1:8000/api',
-  serverUrl: 'http://127.0.0.1:8000/',
-  oauthUrl: 'http://127.0.0.1:8000/oauth',
+  apiUrl: 'https://server.ashoresystems.com/~magnfy/api',
+  serverUrl: 'https://server.ashoresystems.com/~magnfy/',
+  oauthUrl: 'https://server.ashoresystems.com/~magnfy/oauth',
   grant_type: 'password',
   client_id: '2',
   client_secret: 'xmdfmkixIRfPKuulzVCNLgIcHL8Qrf7wVbqHRIXM',
