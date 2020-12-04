@@ -41,28 +41,19 @@
     padding-bottom: 5px;
 }
 .dropdown-toggle::after {
-    display: inline-block;
+    display: block;
     vertical-align: .255em;
     content: "";
     border-top: UNSET;
     border-right: UNSET;
     border-bottom: 0;
     border-left: UNSET;
-    content: '>';
-    font: 17px "Consolas", monospace;
+    background-image: url(/assets/img/Vector.png);
     color: #333;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-    right: -3px;
-    top: 16px;
-    padding: 0 0 2px;
-    position: absolute;
-    pointer-events: none;
-    color: #000;
-    font-size: 18px;
-    font-weight: 300;
+    width: 15px;
+    height: 10px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
 }
 
 .avatar {
