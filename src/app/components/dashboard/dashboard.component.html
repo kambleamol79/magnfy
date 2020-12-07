@@ -63,7 +63,10 @@
                       <div class="d-flex align-items-center">
                         <img src="{{fposts.picture.data.url}}" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
                         <div class="ml-3">
-                          <h3>{{fposts.name}}<img src="../frontend/assets/img/fb.png" alt="" class="ml-2"></h3>
+                          <h3>{{fposts.name}}
+                            <!-- <img src="../frontend/assets/img/fb.png" alt="" class="ml-2"> -->
+                            <i class="fab fa-facebook-f"></i>
+                          </h3>
                           <span>posted in Facebook on {{ post.created_time | date: 'MMM d' }} at {{ post.created_time | date: 'h:mm' }}</span>
                         </div>
                       </div>
@@ -88,7 +91,10 @@
                       <div class="d-flex align-items-center">
                         <img src="{{ tweet.user.profile_image_url_https }}" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
                         <div class="ml-3">
-                          <h3>{{ tweet.user.name }}<img src="../frontend/assets/img/in.png" alt="" class="ml-2"></h3>
+                          <h3>{{ tweet.user.name }}
+                            <!-- <img src="../frontend/assets/img/in.png" alt="" class="ml-2"> -->
+                            <i class="fab fa-twitter"></i>
+                          </h3>
                           <span>posted in Twitter on {{ tweet.created_at | twConvertDate }}</span>
                         </div>
                       </div>
@@ -113,7 +119,10 @@
                       <div class="d-flex align-items-center">
                         <img src="../frontend/assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
                         <div class="ml-3">
-                          <h3>{{ instagramPost.username }}<img src="../frontend/assets/img/insta.png" alt="" class="ml-2"></h3>
+                          <h3>{{ instagramPost.username }}
+                            <!-- <img src="../frontend/assets/img/insta.png" alt="" class="ml-2"> -->
+                            <i class="fab fa-instagram"></i>
+                          </h3>
                           <span>posted in Instagram on {{ instagramPost.timestamp | date: 'MMM d' }} at {{ instagramPost.timestamp | date: 'h:mm' }}</span>
                         </div>
                       </div>
@@ -183,6 +192,8 @@
                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 col-12 text-center">
                   <div style="display: block">
                     <canvas baseChart
+                            [colors]="chartColors"
+                            [options]="options"
                             [data]="pieChartData"
                             [labels]="pieChartLabels"
                             [chartType]="pieChartType"></canvas>

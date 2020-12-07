@@ -14,6 +14,14 @@ export class DashboardComponent implements OnInit {
   public pieChartLabels: string[] = ['Facebook', 'Twitter', 'Instagram'];
   public pieChartData:number[];
   public pieChartType:string = 'doughnut';
+  public chartColors: any[] = [
+    { 
+      backgroundColor:["#6f52ed", "#33d69f", "#ffb800"]
+    }];
+
+    public options = {        
+      cutoutPercentage: 80
+    };
 
   facebookPosts: any = [];
   fbPosts: any = [];
@@ -30,6 +38,7 @@ export class DashboardComponent implements OnInit {
   constructor(private route: ActivatedRoute, private facebookService: FacebookService, private appService: AppService, public authService: AuthService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.getMyInterests();
     this.getMySocialAccountsData();
     this.getAllArticles();
     this.getAllUsers();
@@ -64,6 +73,18 @@ export class DashboardComponent implements OnInit {
     this.getChartData();
   }
 
+  getMyInterests(){
+    this.appService.getInterestSocialDataByAuth().subscribe(res => {
+      //console.log(res);
+      res['data']['result'].forEach(item => {
+        if(item['instagram_token']){
+          this.getInstagramPostsByToken(item['instagram_token']);
+        }
+      });
+
+    });
+  }
+
   //Twitter
   getTwtterFeeds(twitter_token){
     if(twitter_token){
@@ -93,7 +114,7 @@ export class DashboardComponent implements OnInit {
           if(this.userSocialData['data'][0]['instagram_token'] == null || this.userSocialData['data'][0]['instagram_token'] == 'null'){
             this.getInstagramAccessToken();
           }else{
-            this.getInstagramPostsinstagramToken(this.userSocialData['data'][0]['instagram_token']);
+            this.getInstagramPostsByToken(this.userSocialData['data'][0]['instagram_token']);
           }
         }
       }
@@ -116,7 +137,7 @@ export class DashboardComponent implements OnInit {
             InstagramAccountDetails['instagram_id'] =  res['user_id'];
             this.facebookService.instgramLongLivedToken(res['access_token']).subscribe(res => {
               if(res['access_token']){
-                this.getInstagramPostsinstagramToken(res['access_token'])
+                this.getInstagramPostsByToken(res['access_token'])
                 localStorage.setItem('instagramToken', res['access_token']);
                 InstagramAccountDetails['instagram_token'] =  res['access_token'];
                 InstagramAccountDetails['instagram_token_expiry_date'] =  res['expires_in'];
@@ -139,10 +160,10 @@ export class DashboardComponent implements OnInit {
   }
 
   //Instgram
-  getInstagramPostsinstagramToken(instagramTkn){
-   
+  getInstagramPostsByToken(instagramTkn){
+    console.log(this.instagramPosts);
       this.facebookService.getInstgramPosts(instagramTkn).subscribe(posts => {
-        this.instagramPosts = posts['data'];
+        this.instagramPosts =this.instagramPosts.concat(posts['data']);
         if(posts['data'].length > 0 && posts['paging']['next']){
           this.facebookService.getInstgramMorePosts(posts['paging']['next']).subscribe(morePosts => {
             if(morePosts['data']){
@@ -150,7 +171,7 @@ export class DashboardComponent implements OnInit {
               this.getChartData();
             }
           });
-        }       
+        }      
       });
   }
 

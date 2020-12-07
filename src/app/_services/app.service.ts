@@ -45,6 +45,21 @@ export class AppService {
             }));
     }
 
+    getInterestSocialDataByAuth() {
+        return this.http.get(`${environment.apiUrl}/get_interest_social_data`)
+            .pipe(
+            map((res: any) => {
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
     getMyProfile() {
         return this.http.get(`${environment.apiUrl}/get_my_profile`)
             .pipe(
