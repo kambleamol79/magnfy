@@ -55,3 +55,11 @@
     font-size: 80%;
     color: #dc3545;
 }
+
+.form-horizontal input{
+    border-radius: 0;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    padding-left: 0;
+}

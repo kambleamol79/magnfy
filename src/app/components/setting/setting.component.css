@@ -163,6 +163,25 @@ h2{
     color: #dc3545;
 }
 
+.form-horizontal input{
+    border-radius: 0;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    padding-left: 0;
+}
+.sorted-feeds-sec .form-check{
+    margin-top: 0;
+    border-bottom: 1px solid #EEF0F6;
+    padding: 23px 25px;
+}
+.sorted-feeds-sec .form-check label{
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #2F2F2F;
+    font-weight: 500;
+}
+
 /*end 23-11-2020*/
 
 
