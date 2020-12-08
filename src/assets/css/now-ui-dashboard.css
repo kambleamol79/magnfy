@@ -5262,7 +5262,7 @@ img {
     display: block;
     text-decoration: none;
     position: relative;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     cursor: pointer;
     font-size: 0.7142em;
     padding: 10px 8px;

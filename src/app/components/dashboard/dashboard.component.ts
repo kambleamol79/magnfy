@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   tweets: any = [];
   trendingUsers: any = [];
   allUsers: any = [];
+  allPosts: any = [];
   totalTrendingUsersCount: any = 0;
   userSocialData: any;
   serverImageUrl: any = environment.serverUrl + 'files/articles/';
@@ -69,6 +70,10 @@ export class DashboardComponent implements OnInit {
   getFbPosts(){
     this.facebookPosts.filter(user => {
       this.fbPosts = [...user.posts.data ];
+      user.posts.data.filter(post => {
+        this.allPosts.push({'userName': user.name, 'userId': user.id, 'profilePicture': user.picture.data.url, 'postId': post.id, 'postMessage': post['message'], 'postImageUrl': post.full_picture, 'postCreationDate': new Date(post.created_time), 'postType': 'facebook'});
+        this.sortPostsData('desc');
+      });
     });
     this.getChartData();
   }
@@ -92,8 +97,11 @@ export class DashboardComponent implements OnInit {
           followers['data']['data']['users'].forEach(element => {
             this.authService.getTwits(twitter_token, element['screen_name']).subscribe(tweets => {
               tweets['data']['data'].forEach(item => {
+                //console.log(item);
                 this.tweets.push(item);
+                this.allPosts.push({'userName': item.user.name, 'userId': item.user.id, 'profilePicture': item.user.profile_image_url_https, 'postId': item.id, 'postMessage': item['text'], 'postImageUrl': item.source, 'postCreationDate': new Date(item.created_at), 'postType': 'twitter'});
                 this.getChartData();
+                this.sortPostsData('desc');
                 this.spinner.hide();
               });
           });
@@ -161,14 +169,21 @@ export class DashboardComponent implements OnInit {
 
   //Instgram
   getInstagramPostsByToken(instagramTkn){
-    console.log(this.instagramPosts);
       this.facebookService.getInstgramPosts(instagramTkn).subscribe(posts => {
         this.instagramPosts =this.instagramPosts.concat(posts['data']);
+        posts['data'].filter(item =>{
+          this.allPosts.push({'userName': item.username, 'postId': item.id, 'postMessage': item['caption'], 'postImageUrl': item.media_url, 'postCreationDate': new Date(item.timestamp), 'postType': 'instagram'});
+        });
+        this.sortPostsData('desc');
         if(posts['data'].length > 0 && posts['paging']['next']){
           this.facebookService.getInstgramMorePosts(posts['paging']['next']).subscribe(morePosts => {
             if(morePosts['data']){
               this.instagramPosts = this.instagramPosts.concat(morePosts['data']);
+              morePosts['data'].filter(item =>{
+                this.allPosts.push({'userName': item.username, 'postId': item.id, 'postMessage': item['caption'], 'postImageUrl': item.media_url, 'postCreationDate': new Date(item.timestamp), 'postType': 'instagram'});
+              });
               this.getChartData();
+              this.sortPostsData('desc');
             }
           });
         }      
@@ -251,6 +266,21 @@ export class DashboardComponent implements OnInit {
       });
     }
     
+  }
+
+  sortPostsData(order: any) {
+    if(order == 'desc'){
+      this.allPosts.sort((a, b) => {
+        return <any>new Date(b.postCreationDate) - <any>new Date(a.postCreationDate);
+      });
+    }
+
+    if(order == 'asc'){
+      this.allPosts.sort((a, b) => {
+        return <any>new Date(a.postCreationDate) - <any>new Date(b.postCreationDate);
+      });
+    }
+
   }
 
   sortArticleData(order: any) {
