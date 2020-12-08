@@ -78,42 +78,72 @@
     border-radius: 50%!important;
 }
 
-.seach-form-dropdown .dropdown-toggle::after {
-    display: none;
-}
-.seach-form-dropdown .dropdown-toggle{
-    background: #fff;
-    color: #A6ACBE;
-    font-size: 16px;
-    font-weight: 500;
+
+
+
+
+
+
+
+
+
+
+
+
+.seach-form-dropdown .dropdown-menu.dropdown-menu-animated.dropdown-lg.d-block{
+    opacity: 1;
+    z-index: 999;
+    visibility: visible;
+    top: 147% !important;
     width: 100%;
-    text-align: left;
-}
-.seach-form-dropdown .dropdown-toggle:hover{
-    box-shadow: none;
+    height: 435px;
+    overflow-y: scroll;
 }
 .seach-form-dropdown{
     width: 45%;
 }
-.seach-form-dropdown .dropdown-menu.show{
-    width: 100%;
-    padding-top: 0px;
-    padding-bottom: 0px;
+.seach-form-dropdown .input-group{
+    position: relative;
 }
-
-.seach-form-dropdown .dropdown-menu .dropdown-item .on-hover{
-    display: none;
+.seach-form-dropdown .input-group img{
+    position: absolute;
+    left: 7px;
+    top: 14px;
 }
-.seach-form-dropdown .dropdown-menu .dropdown-item:hover .on-hover{
-    display: block;
+.seach-form-dropdown .input-group input{
+    border: none;
+    padding: 15px 15px 15px 38px;
+    color: #a6acbe;
+    font-size: 16px;
+    font-weight: 500;
+}
+.seach-form-dropdown .input-group input::placeholder{
+    color: #a6acbe;
+    font-size: 16px;
+    font-weight: 500;
 }
 .seach-form-dropdown .dropdown-item{
-    margin-top: 0px;
-}
-.seach-form-dropdown .dropdown-item{
+    margin-top: 0;
     padding: 17px 25px 17px 60px;
 }
 .seach-form-dropdown .dropdown-item:hover{
-    background-color: rgb(255 ,174, 135,0.1);
+    background-color: rgba(255,174,135,.1);
     padding: 17px 25px 17px 60px;
 }
+.seach-form-dropdown .dropdown-item:hover .on-hover {
+    display: block;
+}
+.seach-form-dropdown .dropdown-item .on-hover {
+    display: none;
+}
+.seach-form-dropdown .dropdown-item .name-user{
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.seach-form-dropdown .dropdown-item .see-all-result{
+    font-size: 18px;
+    color: #8F949B;
+    font-weight: 500;
+}   

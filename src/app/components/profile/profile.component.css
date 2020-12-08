@@ -10,8 +10,8 @@
     margin-top: 40px;
 }
 .user-profile-form img{
-    width: 130px;
-    height: 130px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 75px;
 }
@@ -62,4 +62,37 @@
     border-top: none;
     border-right: none;
     padding-left: 0;
+}
+
+.profile-info .btn.btn-primary.btn-round.btn-file{
+    background-color: #FF7432;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+.card{
+    border-radius: 10px;
+}
+.user-profile-data label{
+    color:#2F2F2F;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.user-profile-data input{
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+
+.btn.btn-primary.btn-round{
+    padding: 14px 55px;
+    background: #FF7432;
+}
+.btn-orange{
+    background: #FF7432;
+}
+
+.alert.alert-success {
+    margin-top: 50px;
 }

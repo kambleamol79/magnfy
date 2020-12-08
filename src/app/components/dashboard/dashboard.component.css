@@ -139,7 +139,7 @@
 }
 .account-activity ul > li{
 	list-style: none;
-	margin:15px 0;
+	margin:15px 10px;
 }
 .account-activity ul > li h6{
 	font-size: 14px;
@@ -164,4 +164,41 @@
 }
 .activity-section .form-group .form-control,.activity-section .input-group .form-control {
     padding: 10px 0px;
+}
+
+.sorted-by-date button{
+	padding: 0;
+    background: #fff;
+    font-size: 11px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+.sorted-by-date button:hover{
+	padding: 0 !important;
+    background-color: #fff !important;
+    font-size: 11px !important;
+    color: #A6ACBE !important;
+    font-weight: 500 !important;
+    box-shadow: unset !important;
+}
+.sorted-by-date button:focus{
+	padding: 0 !important;
+    background-color: #fff !important;
+    font-size: 11px !important;
+    color: #A6ACBE !important;
+    font-weight: 500 !important;
+    box-shadow: unset !important;
+}
+.sorted-by-date .dropdown-menu a{
+	font-size: 10px;
+}
+
+.fab.fa-instagram{
+	color: #FF7432;
+}
+.fab.fa-facebook{
+	color: #1062AD;
+}
+.card{
+	border-radius: 10px;
 }

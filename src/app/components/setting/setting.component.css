@@ -7,7 +7,7 @@
 
 /*start 23-11-2020*/
 .setting-page-section{
-    margin-top: 65px;
+    margin-top: 30px;
 }
 h2{
     font-size: 24px;
@@ -182,6 +182,27 @@ h2{
     font-weight: 500;
 }
 
+.card{
+    border-radius: 10px;
+}
+.setting-page-section .btn.btn-primary.btn-round{
+    padding: 14px 55px;
+    background: #FF7432;
+}
+.account-setting-card label{
+    color:#2F2F2F;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.account-setting-card input{
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+.alert.alert-success {
+    background-color: #f96332;
+}
 /*end 23-11-2020*/
 
 

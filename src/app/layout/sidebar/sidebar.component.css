@@ -1,5 +1,5 @@
 .social-media-icons{
-	padding: 10px 35px;
+	padding: 10px 8px;
     margin: 10px 15px 0;
 }
 .social-media-sidebar{
@@ -9,6 +9,12 @@
 }
 .sidebar-wrapper{
 	overflow: hidden;
+}
+.sidebar-wrapper ul > li a{
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-transform: capitalize;
 }
 .sidebar-wrapper ul > li.active a{
 	background: transparent;
@@ -59,4 +65,7 @@
 
 .sidebar-wrapper{
 	position: relative;
+}
+.sidebar-wrapper ul > li > a {
+    border-radius: 0;
 }
