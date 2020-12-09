@@ -24,8 +24,8 @@
                           Sorted by Date
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Descending</a>
-                          <a class="dropdown-item" href="#">Asending</a>
+                          <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('desc')">Descending</a>
+                          <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('asc')">Asending</a>
                         </div>
                       </div>
                     </div>
@@ -65,8 +65,8 @@
                           Sorted by Date
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Descending</a>
-                          <a class="dropdown-item" href="#">Asending</a>
+                          <a class="dropdown-item" href="javascript:void(0)" (click)="sortPostsData('desc')">Descending</a>
+                          <a class="dropdown-item" href="javascript:void(0)" (click)="sortPostsData('asc')">Asending</a>
                         </div>
                       </div>
                   </div>
@@ -188,11 +188,11 @@
                       </select> -->
                       <div class="dropdown sorted-by-date">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Rating
+                          Sort by rating
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Descending</a>
-                          <a class="dropdown-item" href="#">Asending</a>
+                          <a class="dropdown-item" href="javascript:void(0)" (click)="getTrendingUsersByOrder('desc')">Descending</a>
+                          <a class="dropdown-item" href="javascript:void(0)" (click)="getTrendingUsersByOrder('asc')">Asending</a>
                         </div>
                       </div>
                     </div>
