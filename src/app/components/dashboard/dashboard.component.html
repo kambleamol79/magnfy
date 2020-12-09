@@ -32,7 +32,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-body">
+            <div class="card-body card-body-cst style-3">
               <div class="py-2" *ngFor="let article of articles">
                 <img src="{{ serverImageUrl }}{{ article.image }}" alt="" class="w-100">
                 <p class="mb-0 mt-2">{{ article.description }}</p>
@@ -134,7 +134,7 @@
 
 
             <div *ngFor="let post of allPosts; let i = index">
-              <div class="card-body">
+              <div class="card-body card-body-cst style-3">
                 <div class="activity-details">
                   <div class="row">
                     <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
@@ -173,7 +173,7 @@
 
       <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12">
         <div class="trending-user">
-          <div class="card matchheight">
+          <div class="card style-3">
             <div class="card-header">
               <div class="row align-items-center">
                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 col-6">
@@ -199,7 +199,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-body">
+            <div class="card-body card-body-cst style-3">
               <ul>
                 <li *ngFor="let user of trendingUsers; let i = index">
                   <div class="d-flex align-items-center justify-content-between">

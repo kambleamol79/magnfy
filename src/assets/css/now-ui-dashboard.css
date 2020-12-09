@@ -5472,7 +5472,10 @@ img {
 .off-canvas-sidebar[data-color="orange"]:after,
 .sidebar[data-color="orange"]:after {
     /*background: #f96332;*/
-    background:#FF7432;
+    /*background:#FF7432;*/
+    /*background-image: linear-gradient(to bottom, rgb(255, 116 ,50,1),rgb(255, 116 ,50,1));*/
+    /*background-image: linear-gradient(rgb(255, 116 ,50,1), rgb(255, 116 ,50,1));*/
+    background-image: linear-gradient(to bottom,rgb(212, 68, 0, 0.8), #D44400);
 }
 .off-canvas-sidebar[data-color="orange"] .nav li.active > a:not([data-toggle="collapse"]),
 .off-canvas-sidebar[data-color="orange"] .nav li.active > a:not([data-toggle="collapse"]) i,

@@ -9,7 +9,7 @@
 }*/
 .matchheight{
 	height: 550px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 .card-user .image {
     max-height: 200px;
@@ -199,6 +199,35 @@
 .fab.fa-facebook{
 	color: #1062AD;
 }
+.fab.fa-twitter{
+	color: #1da1f2;
+}
 .card{
 	border-radius: 10px;
+	overflow-x: hidden;
+}
+.trending-user .card{
+	height: 300px;
+	overflow-y: hidden;
+}
+
+
+
+.card .card-body-cst {
+    overflow-y: scroll;
+    height: 550px;
+}
+
+.style-3::-webkit-scrollbar {
+    width: 10px;
+}
+
+.style-3::-webkit-scrollbar-track {
+    border-radius: 50px;
+    background-color: #ddd;
+}
+
+.style-3::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ccc;
 }

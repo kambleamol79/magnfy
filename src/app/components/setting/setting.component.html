@@ -16,10 +16,10 @@
                             <div class="card-body account-setting-card">
                                 <form [formGroup]="userDataForm">
                                     <div class="form-horizontal" [ngStyle]="{'padding':'25px'}">
-                                        <div class="row">
-                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Name</label>
+                                        <div class="row mange-profile-sec mt-0">
+                                            
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                                                <div class="form-group">
+                                                <div class="form-group mb-0">
                                                     <input type="text" class="form-control" id="name" name="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted1 && f1.name.errors }">
 													<div *ngIf="submitted1 && f1.name.errors" class="invalid-feedback">
                                                         <div *ngIf="f1.name.errors.required ">Name is required</div>
@@ -27,22 +27,24 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Name</label>
                                         </div>
 
-                                        <div class="row">
-                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Username</label>
+                                        <div class="row mange-profile-sec">
+                                            
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                                                <div class="form-group">
+                                                <div class="form-group mb-0">
                                                     <input type="text" class="form-control" id="username" name="username" formControlName="username">
                                                 </div>
                                             </div>
+                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Username</label>
                                         </div>
 
-                                        <div class="row">
-                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Email</label>
+                                        <div class="row mange-profile-sec">
+                                            
 
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                                                <div class="form-group">
+                                                <div class="form-group mb-0">
                                                     <input type="email" class="form-control" placeholder="example@gmail.com" name="email" [ngClass]="{ 'is-invalid': submitted1 && f1.email.errors }" formControlName="email" >
 													<div *ngIf="submitted1 && f1.email.errors" class="invalid-feedback">
                                                         <div *ngIf="f1.email.errors.required">Email field is required</div>
@@ -50,13 +52,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">Email</label>
                                         </div>
 
-                                        <div class="row">
-                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">City</label>
+                                        <div class="row mange-profile-sec mb-0">
+                                            
 
                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                                                <div class="form-group">
+                                                <div class="form-group mb-0">
                                                     <input type="text" class="form-control" id="city" name="city" formControlName="city">
 													<div *ngIf="submitted1 && f1.city.errors" class="invalid-feedback">
                                                         <div *ngIf="f1.city.errors.required">City is required</div>
@@ -64,6 +67,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12  col-form-label text-left">City</label>
                                         </div>
                                     </div>
                                 </form>

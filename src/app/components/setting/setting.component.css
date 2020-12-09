@@ -169,6 +169,8 @@ h2{
     border-top: none;
     border-right: none;
     padding-left: 0;
+    border-bottom: none;
+    padding:0;
 }
 .sorted-feeds-sec .form-check{
     margin-top: 0;
@@ -186,14 +188,17 @@ h2{
     border-radius: 10px;
 }
 .setting-page-section .btn.btn-primary.btn-round{
-    padding: 14px 55px;
+    padding: 13px 55px;
     background: #FF7432;
+    font-size: 15px;
+    font-weight: 600;
 }
 .account-setting-card label{
     color:#2F2F2F;
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 0px;
+    padding-top: 5px;
 }
 .account-setting-card input{
     font-size: 14px;
@@ -202,6 +207,10 @@ h2{
 }
 .alert.alert-success {
     background-color: #f96332;
+}
+
+.mange-profile-sec{
+    margin: 30px 0;
 }
 /*end 23-11-2020*/
 

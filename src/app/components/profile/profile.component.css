@@ -10,8 +10,8 @@
     margin-top: 40px;
 }
 .user-profile-form img{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 75px;
 }
@@ -62,6 +62,8 @@
     border-top: none;
     border-right: none;
     padding-left: 0;
+    border-bottom: none;
+    padding: 0px;
 }
 
 .profile-info .btn.btn-primary.btn-round.btn-file{
@@ -74,20 +76,36 @@
     border-radius: 10px;
 }
 .user-profile-data label{
-    color:#2F2F2F;
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 0px;
-}
-.user-profile-data input{
     font-size: 14px;
     color: #A6ACBE;
     font-weight: 500;
+    margin-bottom: 0px;
+    padding-top: 5px;
+}
+.user-profile-data input{
+    color:#2F2F2F;
+    font-size: 16px;
+    font-weight: 500;
+}
+.user-content-det label{
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.user-content-det textarea{
+    color:#2F2F2F;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 0px;
+    border-bottom: none;
 }
 
 .btn.btn-primary.btn-round{
-    padding: 14px 55px;
+    padding: 13px 55px;
     background: #FF7432;
+    font-size: 15px;
+    font-weight: 600;
 }
 .btn-orange{
     background: #FF7432;
@@ -95,4 +113,7 @@
 
 .alert.alert-success {
     margin-top: 50px;
+}
+.mange-profile-sec{
+    margin: 30px 0;
 }
