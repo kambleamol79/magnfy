@@ -56,13 +56,19 @@
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12 my-interst-popup">
                                         <div class="mb-4">
-                                            <img src="../assets/img/dashboard.png" alt="" class="w-100">
+                                            <img src="../assets/img/dashboard.gif" (click)="showLightbox(0)" alt="" class="w-100">
+                                            <ng-image-fullscreen-view
+                                                [images]="imageObject"
+                                                [imageIndex]="selectedImageIndex"
+                                                [show]="showFlag"
+                                                (close)="closeEventHandler()">
+                                            </ng-image-fullscreen-view>
                                         </div>
                                         <div class="mb-4">
-                                            <img src="../assets/img/dashboard.png" alt="" class="w-100">
+                                            <img src="../assets/img/dashboard.gif" alt="" (click)="showLightbox(0)" class="w-100">
                                         </div>
                                         <div class="mb-4">
-                                            <img src="../assets/img/dashboard.png" alt="" class="w-100">
+                                            <img src="../assets/img/dashboard.gif" alt="" (click)="showLightbox(0)" class="w-100">
                                         </div>
                                     </div>
                                 </div>
