@@ -33,6 +33,7 @@ import { StringTrimPipe } from './_helpers/string-trim.pipe';
 import { SettingComponent } from './components/setting/setting.component';
 import { TwConvertDatePipe } from './_helpers/tw-convert-date.pipe';
 import { ChartsModule } from 'ng2-charts';
+import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ChartsModule } from 'ng2-charts';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ChartsModule,
+    NgImageFullscreenViewModule,
     ModalModule.forRoot(),
   ],
   providers: [ 

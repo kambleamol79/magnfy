@@ -282,8 +282,8 @@
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                           <img *ngIf="item == 'Facebook'" src="../frontend/assets/img/Ellipse 27.png" alt="" class="mr-2">
-                          <img *ngIf="item == 'Twitter'"src="../frontend/assets/img/Ellipse 26.png" alt="" class="mr-2">
-                          <img *ngIf="item == 'Instagram'"src="../frontend/assets/img/Ellipse 24.png" alt="" class="mr-2">
+                          <img *ngIf="item == 'Twitter'"src="../frontend/assets/img/Ellipse 24.png" alt="" class="mr-2">
+                          <img *ngIf="item == 'Instagram'"src="../frontend/assets/img/Ellipse 26.png" alt="" class="mr-2">
                           <h6>{{ item }}</h6>
                         </div>
                         <p class="mb-0" *ngIf="item == 'Facebook'">{{ this.fbPosts.length }}<span>({{ this.pieChartData[0] | number : '1.0-0' }}%)</span></p>
@@ -307,109 +307,4 @@
   </div>
   <!-- akshara html end -->
 
-  <!-- <div class="row">
-
-    <div class="col-md-12" *ngIf="tweets.length < 1">
-      <div class="card">
-        <div class="card-body">
-          <div class="places-buttons">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto text-center">
-                <h4 class="card-title">
-                  Loading posts...
-                </h4>
-              </div>
-            </div>              
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div *ngFor="let fposts of facebookPosts">
-        <div *ngFor="let post of fposts.posts.data; let i = index">
-          <div class="card card-user">
-            <div class="image">
-              <img src="{{ post.full_picture }}" alt="...">
-            </div>            
-            <div class="card-body">
-              <div class="author">
-                <a href="javascript:void(0);">
-                  <img class="avatar border-gray" src="{{fposts.picture.data.url}}" alt="..." height="{{fposts.picture.data.height}}" width="{{fposts.picture.data.width}}">
-                  <h5 class="title">{{fposts.name}}</h5>
-                </a>        
-              </div>
-              <p class="description text-center">
-                {{ post.message }}
-              </p>
-              <hr>
-            <div class="button-container">
-              <button href="javascript:void(0);" class="btn btn-neutral btn-icon btn-round btn-lg">
-                <i class="fab fa-facebook-f"></i>
-              </button>
-            </div>
-            </div>              
-          
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div *ngFor="let tweet of tweets; let i = index">
-        <div class="card card-user"> 
-          <div class="image">
-            <img src="{{ tweet.user.profile_banner_url }}" alt="..."> 
-          </div>           
-          <div class="card-body">
-            <div class="author">
-              <a href="javascript:void(0);">
-                <img class="avatar border-gray" src="{{ tweet.user.profile_image_url_https }}" alt="...">
-                <h5 class="title">{{ tweet.user.name }}</h5>
-              </a>
-              <p class="description">
-                {{ tweet.user.screen_name }}
-              </p>
-            </div>
-            <p class="description text-center">
-              {{ tweet.text }}
-            </p>
-          </div>
-          <hr>
-          <div class="button-container">
-            <button href="javascript:void(0);" class="btn btn-neutral btn-icon btn-round btn-lg">
-              <i class="fab fa-twitter"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div *ngFor="let instagramPost of instagramPosts; let i = index">
-        <div class="card card-user" *ngIf="instagramPost.media_type == 'IMAGE'"> 
-          <div class="image">
-            <img src="{{ instagramPost.media_url }}" alt="..."> 
-          </div>
-          <div class="card-body">
-            <div class="author">
-              <a href="javascript:void(0);">
-                <img class="avatar border-gray" src="{{ instagramPost.media_url }}" alt="...">
-                <h5 class="title">{{ instagramPost.username }}</h5>
-              </a>              
-            </div> 
-            <p class="description text-center">
-              {{ instagramPost.caption }}
-            </p>           
-          </div>
-          <hr>
-          <div class="button-container">
-            <button href="javascript:void(0);" class="btn btn-neutral btn-icon btn-round btn-lg">
-              <i class="fab fa-instagram"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div> -->
 </div>
