@@ -52,8 +52,9 @@ export class AuthService {
     AuthLogin(provider) {
         return this.afAuth.signInWithPopup(provider)
         .then((result) => {
-            //console.log(result);
+            //console.log(result)
             localStorage.setItem('twitter_screen_name', result['additionalUserInfo']['profile']['screen_name']);
+            localStorage.setItem('twitter_id', result['additionalUserInfo']['profile']['id']);
             console.log('You have been successfully logged in!')
         }).catch((error) => {
             console.log(error)
@@ -116,8 +117,8 @@ export class AuthService {
       return this.http.post(`${environment.apiUrl}/twit_authorize`, {headers:headers});
     }
 
-    getTwits(token, userName){
-        return this.http.post(`${environment.apiUrl}/twit_get_posts`, {'twit_token' :token, 'screen_name': userName});
+    getTwits(token, userName, id){
+        return this.http.post(`${environment.apiUrl}/twit_get_posts`, {'twit_token' :token, 'screen_name': userName, 'twit_id': id});
     }
 
     getFollowers(token){

@@ -196,8 +196,8 @@ export class ProfileComponent implements OnInit {
     }
     this.authService.TwitterAuth().then(res =>{
       twitterAccountDetails['twitter_social_name'] = localStorage.getItem('twitter_screen_name');
-      this.authService.loginWithTwitter().subscribe(res => {
-        console.log(res['data']['data']['access_token']);
+      twitterAccountDetails['twitter_id'] = localStorage.getItem('twitter_id');
+      this.authService.loginWithTwitter().subscribe(res => {        
         twitterAccountDetails['twitter_token'] = res['data']['data']['access_token'];
         if(this.userSocialData['data'].length == 0){
           this.appServiceL.addMySocialAccounts(twitterAccountDetails).subscribe(res => {

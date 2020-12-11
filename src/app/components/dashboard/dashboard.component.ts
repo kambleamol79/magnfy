@@ -84,6 +84,7 @@ export class DashboardComponent implements OnInit {
       res['data']['result'].forEach(item => {
         if(item['instagram_token']){
           this.getInstagramPostsByToken(item['instagram_token']);
+          this.getTwtterFeeds(item['twitter_token'], item['twitter_social_name'], item['twitter_id']);
         }
       });
 
@@ -91,22 +92,24 @@ export class DashboardComponent implements OnInit {
   }
 
   //Twitter
-  getTwtterFeeds(twitter_token){
+  getTwtterFeeds(twitter_token, twitter_social_name, twitter_id){
     if(twitter_token){
-        this.authService.getFollowers(twitter_token).subscribe(followers =>{
-          followers['data']['data']['users'].forEach(element => {
-            this.authService.getTwits(twitter_token, element['screen_name']).subscribe(tweets => {
-              tweets['data']['data'].forEach(item => {
-                //console.log(item);
-                this.tweets.push(item);
-                this.allPosts.push({'userName': item.user.name, 'userId': item.user.id, 'profilePicture': item.user.profile_image_url_https, 'postId': item.id, 'postMessage': item['text'], 'postImageUrl': item.source, 'postCreationDate': new Date(item.created_at), 'postType': 'twitter'});
-                this.getChartData();
-                this.sortPostsData('desc');
-                this.spinner.hide();
-              });
+        this.authService.getTwits(twitter_token, twitter_social_name, twitter_id).subscribe(tweets => {
+          tweets['data']['data'].forEach(item => {
+            //console.log(item);
+            this.tweets.push(item);
+            let postImage = item.entities.media ? item.entities.media[0].media_url_https : '';
+            this.allPosts.push({'userName': item.user.name, 'userId': item.user.id, 'profilePicture': item.user.profile_image_url_https, 'postId': item.id, 'postMessage': item['text'], 'postImageUrl': postImage, 'postCreationDate': new Date(item.created_at), 'postType': 'twitter'});
+            this.getChartData();
+            this.sortPostsData('desc');
+            this.spinner.hide();
           });
         });
-      });
+      /*followers['data']['data']['users'].forEach(element => {
+      });*/
+        /*this.authService.getFollowers(twitter_token).subscribe(followers =>{
+          
+        });*/
     }
   }
 
@@ -117,13 +120,15 @@ export class DashboardComponent implements OnInit {
         
         if(this.userSocialData['data'].length > 0){
           this.getFacebookFeeds(this.userSocialData['data'][0]['facebook_token']);
-          this.getTwtterFeeds(this.userSocialData['data'][0]['twitter_token']);
+          this.getTwtterFeeds(this.userSocialData['data'][0]['twitter_token'], this.userSocialData['data'][0]['twitter_social_name'], this.userSocialData['data'][0]['twitter_id']);
 
           if(this.userSocialData['data'][0]['instagram_token'] == null || this.userSocialData['data'][0]['instagram_token'] == 'null'){
             this.getInstagramAccessToken();
           }else{
             this.getInstagramPostsByToken(this.userSocialData['data'][0]['instagram_token']);
           }
+        }else{
+          this.getInstagramAccessToken();
         }
       }
     });
@@ -139,6 +144,7 @@ export class DashboardComponent implements OnInit {
     }
 
     this.route.queryParams.subscribe((params: Params) => {
+      console.log(params);
       if(params['code']){
         this.facebookService.getInstgramAccessToken(params['code']).subscribe(res=> {
           if(res['access_token']){
