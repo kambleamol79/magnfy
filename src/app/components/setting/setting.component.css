@@ -194,15 +194,15 @@ h2{
     font-weight: 600;
 }
 .account-setting-card label{
-    color:#2F2F2F;
-    font-size: 16px;
+    font-size: 14px;
+    color: #A6ACBE;
     font-weight: 500;
     margin-bottom: 0px;
     padding-top: 5px;
 }
 .account-setting-card input{
-    font-size: 14px;
-    color: #A6ACBE;
+    color: #2F2F2F;
+    font-size: 16px;
     font-weight: 500;
 }
 .alert.alert-success {

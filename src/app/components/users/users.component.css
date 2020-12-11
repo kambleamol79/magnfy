@@ -3,3 +3,143 @@
     min-height: calc(100vh - 123px);
     margin-top: -30px;
 }
+
+
+.card{
+	border-radius: 10px;
+}
+.masonry-column {
+  padding: 0 15px;
+}
+
+.masonry-grid > div .thumbnail {
+  margin: 5px 1px;
+}
+
+.magnify-post-section{
+    margin-top: 65px;
+}
+
+.magnify-post-blog h3{
+    margin: 0px 0;
+    font-size: 14px;
+    color: #2F2F2F;
+    font-weight: 500;
+}
+.magnify-post-blog span{
+    font-size: 12px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+.magnify-post-blog p{
+    font-size: 14px;
+    color: #000000;
+}
+.magnify-post-blog a{
+    font-size: 14px;
+    color: #578FC2;
+    font-weight: 500;
+}
+
+.customcheck {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.customcheck input {
+    /*position: absolute;*/
+    opacity: 0;
+    cursor: pointer;
+    height: unset;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border-radius: 0 !important;
+    border: 1px solid #ebebeb;
+}
+
+/* On mouse-over, add a grey background color */
+.customcheck:hover input ~ .checkmark {
+    background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.customcheck input:checked ~ .checkmark {
+    background-color: #FF7432;
+    border-radius: 5px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.customcheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.customcheck .checkmark:after {
+    left: 1px;
+    top: 2px;
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    width: 6px;
+    height: 10px;
+}
+
+.sorted-by-date button{
+	padding: 0;
+    background: transparent;
+    font-size: 11px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+.sorted-by-date button:hover{
+	padding: 0 !important;
+    background-color: transparent !important;
+    font-size: 11px !important;
+    color: #A6ACBE !important;
+    font-weight: 500 !important;
+    box-shadow: unset !important;
+}
+.sorted-by-date button:focus{
+	padding: 0 !important;
+    background-color: transparent !important;
+    font-size: 11px !important;
+    color: #A6ACBE !important;
+    font-weight: 500 !important;
+    box-shadow: unset !important;
+}
+.sorted-by-date .dropdown-menu a{
+	font-size: 10px;
+}

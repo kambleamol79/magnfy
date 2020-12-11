@@ -5,24 +5,143 @@
    
     <div class="col-md-12">
         <alert></alert>
-        <div class="row">
-            <div class="card">
-                <div class="card-body">
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="Enter name of your interest">
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-primary btn-round" (click)="openModal(step1)">Add new interest</button>
-                    </div>
-                </div>
+        <div class="row add-new-interest align-items-center mt-3 mb-1">
+            <div class="col-md-6">
+                <div class="app-search dropdown d-lg-block seach-form-dropdown">
+                  <div class="input-group mb-0">
+                      <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                  </div>
+                  <div class="dropdown-menu dropdown-menu-animated dropdown-lg py-0 d-block style-3" id="search-dropdown">
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                              <p class="mb-0 px-2 name-user">Annette Watson</p>
+                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
+                            </div>
+                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                          </div>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                            <p class="mb-0 px-2 name-user">Annette Watson</p>
+                            <img src="../assets/img/search-icon5.png" alt="" class="px-2">
+                            <img src="../assets/img/search-icon6.png" alt="" class="px-2">
+                          </div>
+                          <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                        </div>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                            <p class="mb-0 px-2 name-user">Annette Watson</p>
+                            <img src="../assets/img/search-icon5.png" alt="" class="px-2">
+                            <img src="../assets/img/search-icon6.png" alt="" class="px-2">
+                          </div>
+                          <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                        </div>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex align-items-center justify-content-between">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                            <p class="mb-0 px-2 name-user">Annette Watson</p>
+                            <img src="../assets/img/search-icon6.png" alt="" class="px-2">
+                          </div>
+                          <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                        </div>
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                              <p class="mb-0 px-2 name-user">Annette Watson</p>
+                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
+                            </div>
+                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                          </div>
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                              <p class="mb-0 px-2 name-user">Annette Watson</p>
+                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
+                            </div>
+                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                          </div>
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                              <p class="mb-0 px-2 name-user">Annette Watson</p>
+                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
+                            </div>
+                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                          </div>
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between">
+                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
+                              <p class="mb-0 px-2 name-user">Annette Watson</p>
+                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
+                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
+                            </div>
+                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                          </div>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <div class="text-center">
+                          <p class="mb-0 see-all-result" style="font-size: 18px;">See all results (19)</p>
+                        </div>
+                      </a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-round my-0" (click)="openModal(step1)">Add new interest</button>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">People</h4>
+                    <div class="row align-items-center">
+                        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6 col-6">
+                            <h4 class="card-title">People</h4>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6 col-6 text-right">
+                            <div class="dropdown date-added">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Date Added
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('desc')">Date</a>
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('asc')">Date</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body" *ngIf="personInterests.length > 0">
                     <div class="typography-line" *ngFor="let personInterest of personInterests">
@@ -40,15 +159,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body" *ngIf="personInterests.length <= 0">
-                    <span>No records found</span>
+                <div class="card-body p-4" *ngIf="personInterests.length <= 0">
+                    <span class="">No records found</span>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Channel & company</h4>
+                    <div class="row align-items-center">
+                        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6 col-6">
+                            <h4 class="card-title">Channel & company</h4>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6 col-6 text-right">
+                            <div class="dropdown date-added">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Followers
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('desc')">Date</a>
+                                  <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('asc')">Date</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body" *ngIf="businessInterests.length > 0">
                     <div class="typography-line"  *ngFor="let businessInterest of businessInterests">
@@ -66,8 +200,8 @@
                         </div>
                       </div>
                 </div>
-                <div class="card-body" *ngIf="businessInterests.length <= 0">
-                    <span>No records found</span>
+                <div class="card-body p-4" *ngIf="businessInterests.length <= 0">
+                    <span class="">No records found</span>
                 </div>
               </div>
             </div>
