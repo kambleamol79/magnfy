@@ -146,6 +146,7 @@
 	color: #A6ACBE;
 	font-weight: 500;
 	margin-bottom: 0px;
+	text-transform: capitalize;
 }
 .account-activity ul > li p{
 	font-size: 16px;
@@ -247,4 +248,9 @@
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
     background-color: #ddd;
+}
+
+.sorted-by-date .dropdown-menu:before {
+    left: 90px;
+    right: 0;
 }

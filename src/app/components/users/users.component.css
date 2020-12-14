@@ -143,3 +143,16 @@
 .sorted-by-date .dropdown-menu a{
 	font-size: 10px;
 }
+
+
+
+.gal {
+    
+    
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+      
+    
+    }   
+    .gal img{ width: 100%; padding: 7px 0;}
