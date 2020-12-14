@@ -308,5 +308,11 @@ export class DashboardComponent implements OnInit {
     return Object.keys(object).map((key) => ({ 'email': key, 'count': object[key].length, 'name': object[key][0]['name'] }));
   }
 
+  savePost(post){
+    this.appService.addSocialPost(post).subscribe(res => {
+      console.log(res);
+    });
+  }
+
 
 }

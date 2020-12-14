@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'signup', component: SignupComponent
   },
   {
-    path: 'users', component: UsersComponent, canActivate: [AuthGuard]
+    path: 'magnfy', component: UsersComponent, canActivate: [AuthGuard]
   },
   {
     path: 'interest', component: InterestComponent, canActivate: [AuthGuard]

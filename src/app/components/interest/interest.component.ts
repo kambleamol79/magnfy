@@ -20,9 +20,11 @@ export class InterestComponent implements OnInit {
   businessInterests: any = [];
   showError: boolean = false;
   errorMessage: any;
+  searchedUser: any = [];
   constructor(private modalService: BsModalService, public fb: FormBuilder, public _appService: AppService) {}
 
   ngOnInit(): void {
+    this.searchedUser = [];
     this.getMyInterests();
     this.InterestForm1 = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9 ]*((-|\s)*[_A-z0-9 ])*$'), trimValidator],],
@@ -124,6 +126,38 @@ export class InterestComponent implements OnInit {
       }
       
     });
+
+  }
+
+  search(event: any){
+    
+    let input = event.target.value;
+    if(input == ''){
+      this.searchedUser = [];
+      return;
+    }
+    //Request body
+    let data = { 'name': input, 'email': input };
+    this._appService.getInterestBySearch(data).subscribe(res => {
+      if(res['status']){
+        this.searchedUser = [];
+        this.searchedUser = res['data']['result'];
+      }
+    });
+
+  }
+
+  closeSearch(event: any){
+    this.searchedUser = [];
+  }
+
+  addInterest(user){
+    this._appService.addInterestRequest(user).subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  sortArticleData(order){
 
   }
 

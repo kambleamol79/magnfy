@@ -301,4 +301,88 @@ export class AppService {
     }
 
 
+    getInterestBySearch(data) {
+        let body = data;
+        return this.http.post(`${environment.apiUrl}/get_user_by_search`, body)
+            .pipe(
+            map((res: any) => {
+                //this.alertService.success(res['message']);
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+    addInterestRequest(data) {
+        let body = data;
+        return this.http.post(`${environment.apiUrl}/add_interest_request`, body)
+            .pipe(
+            map((res: any) => {
+                this.alertService.success(res['message']);
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+    getHelpPageData() {
+        return this.http.get(`${environment.apiUrl}/get_help_page_contents`)
+            .pipe(
+            map((res: any) => {
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+
+    getAllSocialPosts() {
+        return this.http.get(`${environment.apiUrl}/get_my_social_posts`)
+            .pipe(
+            map((res: any) => {
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+    addSocialPost(data) {
+        let body = data;
+        return this.http.post(`${environment.apiUrl}/add_social_posts`, body)
+            .pipe(
+            map((res: any) => {
+                this.alertService.success(res['message']);
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+
+
 }

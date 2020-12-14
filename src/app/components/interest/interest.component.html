@@ -9,111 +9,30 @@
             <div class="col-md-6">
                 <div class="app-search dropdown d-lg-block seach-form-dropdown">
                   <div class="input-group mb-0">
-                      <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                      <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="interest-search" (input)="search($event);">
                   </div>
-                  <div class="dropdown-menu dropdown-menu-animated dropdown-lg py-0 d-block style-3" id="search-dropdown">
-                      <a href="javascript:void(0);" class="dropdown-item notify-item">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center">
-                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                              <p class="mb-0 px-2 name-user">Annette Watson</p>
-                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
-                            </div>
-                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                          </div>
-                      </a>
-                      <a class="dropdown-item" href="#">
+                  <div class="dropdown-menu dropdown-menu-animated dropdown-lg py-0 d-block style-3" id="search-dropdown" *ngIf="searchedUser.length > 0">
+                    <div href="javascript:void(0);" class="dropdown-item notify-item" *ngFor="let user of searchedUser">
                         <div class="d-flex align-items-center justify-content-between">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                            <p class="mb-0 px-2 name-user">Annette Watson</p>
-                            <img src="../assets/img/search-icon5.png" alt="" class="px-2">
-                            <img src="../assets/img/search-icon6.png" alt="" class="px-2">
+                          <div class="d-flex align-items-center">
+                            <img *ngIf="user && user.image" src="{{ imageUrl }}" alt="..." style="width: 25px;height: 25px;border-radius: 50px">
+                            <img *ngIf="user && !user.image" src="../frontend/assets/img/default-avatar.png" alt="..." style="width: 25px;height: 25px;border-radius: 50px">
+                            <p class="mb-0 px-2 name-user">{{ user.name }}</p>
+                            <img src="../frontend/assets/img/search-icon1.png" alt="" class="px-2" *ngIf="user && user.instagram_token">
+                            <!-- <img src="../frontend/assets/img/search-icon2.png" alt="" class="px-2"> -->
+                            <img src="../frontend/assets/img/search-icon3.png" alt="" class="px-2" *ngIf="user && user.facebook_token">
+                            <img src="../frontend/assets/img/search-icon4.png" alt="" class="px-2" *ngIf="user && user.twitter_token">
                           </div>
-                          <img src="../assets/img/user plus.png" alt="" class="on-hover">
+                          <a href="javascript:void(0);" (click)="addInterest(user)">
+                            <img src="../frontend/assets/img/user plus.png" alt="" class="on-hover">
+                          </a>
                         </div>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <div class="d-flex align-items-center justify-content-between">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                            <p class="mb-0 px-2 name-user">Annette Watson</p>
-                            <img src="../assets/img/search-icon5.png" alt="" class="px-2">
-                            <img src="../assets/img/search-icon6.png" alt="" class="px-2">
-                          </div>
-                          <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                        </div>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <div class="d-flex align-items-center justify-content-between">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                            <p class="mb-0 px-2 name-user">Annette Watson</p>
-                            <img src="../assets/img/search-icon6.png" alt="" class="px-2">
-                          </div>
-                          <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                        </div>
-                      </a>
-                      <a href="javascript:void(0);" class="dropdown-item notify-item">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center justify-content-between">
-                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                              <p class="mb-0 px-2 name-user">Annette Watson</p>
-                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
-                            </div>
-                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                          </div>
-                      </a>
-                      <a href="javascript:void(0);" class="dropdown-item notify-item">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center justify-content-between">
-                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                              <p class="mb-0 px-2 name-user">Annette Watson</p>
-                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
-                            </div>
-                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                          </div>
-                      </a>
-                      <a href="javascript:void(0);" class="dropdown-item notify-item">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center justify-content-between">
-                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                              <p class="mb-0 px-2 name-user">Annette Watson</p>
-                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
-                            </div>
-                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                          </div>
-                      </a>
-                      <a href="javascript:void(0);" class="dropdown-item notify-item">
-                          <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-flex align-items-center justify-content-between">
-                              <img src="../assets/img/drop-user.png" alt="" style="width: 25px;height: 25px;border-radius: 50px">
-                              <p class="mb-0 px-2 name-user">Annette Watson</p>
-                              <img src="../assets/img/search-icon1.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon2.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon3.png" alt="" class="px-2">
-                              <img src="../assets/img/search-icon4.png" alt="" class="px-2">
-                            </div>
-                            <img src="../assets/img/user plus.png" alt="" class="on-hover">
-                          </div>
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        <div class="text-center">
-                          <p class="mb-0 see-all-result" style="font-size: 18px;">See all results (19)</p>
-                        </div>
-                      </a>
+                      </div>
+                    <!-- <a class="dropdown-item" href="#">
+                      <div class="text-center">
+                        <p class="mb-0 see-all-result" style="font-size: 18px;">See all results (19)</p>
+                      </div>
+                    </a> -->
                   </div>
                </div>
             </div>
