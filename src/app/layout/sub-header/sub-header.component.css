@@ -126,6 +126,10 @@
     margin-top: 0;
     padding: 17px 25px 17px 60px;
 }
+.seach-form-dropdown .dropdown-item p{
+    min-width: 100px;
+    max-width: 300px;
+}
 .seach-form-dropdown .dropdown-item:hover{
     background-color: rgba(255,174,135,.1);
     padding: 17px 25px 17px 60px;

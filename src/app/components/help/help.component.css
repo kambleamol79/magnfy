@@ -24,22 +24,24 @@
     border-radius: unset;
     color: #FF7432;
     background: unset;
-    background-image: linear-gradient(to left, #ffe3d9,#ffe3d9);
+    background-color: rgba(255,174,135,.1);
     font-size: 15px;
     font-weight: 500;
     padding: 20px;
     position: relative;
+    font-weight: 600;
 }
 .card .card-header ul > li.nav-item .nav-link:hover{
     box-shadow: none;
     border-radius: unset;
     color: #FF7432;
     background: unset;
-    background-image: linear-gradient(to left, #ffe3d9,#ffe3d9);
+    background-color: rgba(255,174,135,.1);
     font-size: 15px;
     font-weight: 500;
     padding: 20px;
     position: relative;
+    font-weight: 600;
 }
 .card .card-header ul > li.nav-item .nav-link{
     font-size: 15px;
@@ -83,6 +85,8 @@
 .my-interst-popup img{
     border-radius: 15px;
     border: 1px solid #d8581c;
+    height: 189px;
+    object-fit: cover;
 }
 
 .help-custom-section .card .card-body {
@@ -90,6 +94,7 @@
     height: 500px;
     overflow-y: scroll;
 }
+
 
 
 

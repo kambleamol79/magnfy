@@ -59,7 +59,10 @@
 }
 .typography-line span {
     position: unset;
-    width: unset;
+    /*width: unset;*/
+    color: #A6ACBE;
+    font-size: 14px;
+    font-weight: 500;
 }
 .typography-line:hover .btn.btn-neutral.btn-icon.btn-round{
 	background-color: transparent;
@@ -250,4 +253,9 @@
 }
 form{
     width: 640px;
+}
+
+
+.date-added .dropdown-menu:before {
+    left: 129px;
 }
