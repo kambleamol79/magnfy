@@ -49,32 +49,27 @@ export class DashboardComponent implements OnInit {
 
   getChartData(){
 
-    let allPostsCount: number = this.fbPosts.length + this.tweets.length + this.instagramPosts.length;
+    let allPostsCount: number = this.facebookPosts.length + this.tweets.length + this.instagramPosts.length;
 
-    this.pieChartData = [ ( this.fbPosts.length / allPostsCount ) * 100, ( this.tweets.length / allPostsCount ) * 100, ( this.instagramPosts.length / allPostsCount ) * 100 ];
+    this.pieChartData = [ ( this.facebookPosts.length / allPostsCount ) * 100, ( this.tweets.length / allPostsCount ) * 100, ( this.instagramPosts.length / allPostsCount ) * 100 ];
 
     //console.log(allPostsCount);
 
   }
 
  //Facebook
-  getFacebookFeeds(facebookAccessToken){  
+  getFacebookFeeds(facebookAccessToken){
     if(facebookAccessToken){
+      this.facebookService.getFacebookProfile(facebookAccessToken).subscribe(fbProfile=>{
       this.facebookService.getFacebookPosts(facebookAccessToken).subscribe(fbposts=>{
-        this.facebookPosts = fbposts.friends.data;
-        this.getFbPosts();
-      });
-    }
-  }
-
-  getFbPosts(){
-    this.facebookPosts.filter(user => {
-      this.fbPosts = [...user.posts.data ];
-      user.posts.data.filter(post => {
-        this.allPosts.push({'userName': user.name, 'userId': user.id, 'profilePicture': user.picture.data.url, 'postId': post.id, 'postMessage': post['message'], 'postImageUrl': post.full_picture, 'postCreationDate': new Date(post.created_time), 'postType': 'facebook'});
-        this.sortPostsData('desc');
+        fbposts.data.forEach(item => {
+          this.facebookPosts.push(item);
+          this.allPosts.push({'userName': fbProfile.name, 'userId': fbProfile.id, 'profilePicture': fbProfile.picture.data.url, 'postId': item.id, 'postMessage': item['message'], 'postImageUrl': item.full_picture, 'postCreationDate': new Date(item.created_time), 'postType': 'facebook'});
+          this.sortPostsData('desc');
+        });
       });
     });
+    }
     this.getChartData();
   }
 
@@ -85,6 +80,7 @@ export class DashboardComponent implements OnInit {
         if(item['instagram_token']){
           this.getInstagramPostsByToken(item['instagram_token']);
           this.getTwtterFeeds(item['twitter_token'], item['twitter_social_name'], item['twitter_id']);
+          this.getFacebookFeeds(item['facebook_token']);
         }
       });
 
@@ -144,7 +140,6 @@ export class DashboardComponent implements OnInit {
     }
 
     this.route.queryParams.subscribe((params: Params) => {
-      console.log(params);
       if(params['code']){
         this.facebookService.getInstgramAccessToken(params['code']).subscribe(res=> {
           if(res['access_token']){

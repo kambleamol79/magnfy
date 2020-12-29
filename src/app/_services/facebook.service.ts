@@ -13,12 +13,12 @@ export class FacebookService {
   constructor(private http: HttpClient,) { }
 
   getFacebookPosts(token: string){
-    return this.http.get<any>(`${environment.facebookGraphUrl}/me?fields=friends.limit(50){posts.limit(50){full_picture,created_time,name,description,caption,message,story_tags,picture,admin_creator},name,picture}&access_token=${token}`);
+    return this.http.get<any>(`${environment.facebookGraphUrl}/me/feed?fields=full_picture,message,created_time&access_token=${token}`);
   }
 
-  /*getFacebookAccounts(userId: string, token: string){
-    return this.http.get<any>(`${environment.facebookGraphUrl}/me/accounts?access_token=${token}`);
-  }*/
+  getFacebookProfile(token: string){
+    return this.http.get<any>(`${environment.facebookGraphUrl}/me?fields=picture,name&access_token=${token}`);
+  }
 
   getFacebookLongLivedToken(token: string){
     return this.http.get<any>(`${environment.facebookGraphUrl}/oauth/access_token?grant_type=fb_exchange_token&client_id=3340960216001024&client_secret=60825d883e9ffd767b309b02b6f5ebaa&fb_exchange_token=${token}`);

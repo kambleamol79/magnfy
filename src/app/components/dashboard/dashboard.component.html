@@ -172,7 +172,7 @@
                           <img *ngIf="item == 'Instagram'"src="../frontend/assets/img/Ellipse 26.png" alt="" class="mr-2">
                           <h6>{{ item }}</h6>
                         </div>
-                        <p class="mb-0" *ngIf="item == 'Facebook'">{{ this.fbPosts.length }}<span>({{ this.pieChartData[0] | number : '1.0-0' }}%)</span></p>
+                        <p class="mb-0" *ngIf="item == 'Facebook'">{{ this.facebookPosts.length }}<span>({{ this.pieChartData[0] | number : '1.0-0' }}%)</span></p>
                         <p class="mb-0" *ngIf="item == 'Twitter'">{{ this.tweets.length }}<span>({{ this.pieChartData[1] | number : '1.0-0' }}%)</span></p>
                         <p class="mb-0" *ngIf="item == 'Instagram'">{{ this.instagramPosts.length }}<span>({{ this.pieChartData[2] | number : '1.0-0' }}%)</span></p>
                       </div>

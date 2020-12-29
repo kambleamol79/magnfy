@@ -144,7 +144,7 @@ export class ProfileComponent implements OnInit {
 
   signInWithFB(): void {
     const fbLoginOptions = {
-      scope: 'email,user_posts,instagram_basic,pages_show_list,pages_read_engagement,pages_manage_posts,public_profile',
+      scope: 'email,user_posts,public_profile',
       return_scopes: true,
       enable_profile_selector: true
     }; // https://developers.facebook.com/docs/reference/javascript/FB.login/v2.11
@@ -157,6 +157,7 @@ export class ProfileComponent implements OnInit {
     }
     
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID, fbLoginOptions).then(res=>{
+      console.log(res);
       localStorage.setItem('facebook', JSON.stringify(res)); 
       faceboobAccountDetails['facebook_id'] = res['id'];
       faceboobAccountDetails['facebook_social_name'] = res['name'];

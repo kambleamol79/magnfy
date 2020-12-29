@@ -34,6 +34,7 @@ import { SettingComponent } from './components/setting/setting.component';
 import { TwConvertDatePipe } from './_helpers/tw-convert-date.pipe';
 import { ChartsModule } from 'ng2-charts';
 import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
     InterestComponent,
     StringTrimPipe,
     SettingComponent,
+    UsersComponent,
     TwConvertDatePipe,
   ],
   imports: [   

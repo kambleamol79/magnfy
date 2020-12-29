@@ -6,39 +6,41 @@
           <div class="magnify-post-section">
 		        <div class="row align-items-center">
             <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-12">
+              <form [formGroup]="filterMethodForm">
                 <div class="d-flex justify-content-between align-items-center">
                   <p class="mb-0">Display:</p>
                   <div>
-                    <label class="customcheck mb-0">All posts
-                      <input type="checkbox" checked="checked">
+                    <label class="customcheck mb-0" (click)="AllPosts();">All posts
+                      <input class="form-check-input" type="checkbox" id="allposts" name="allposts" formControlName="allposts" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                   <div>
-                    <label class="customcheck mb-0">Instagram
-                      <input type="checkbox" checked="checked">
+                    <label class="customcheck mb-0" (click)="instagramPosts();">Instagram
+                      <input class="form-check-input" type="checkbox" id="instagram" name="instagram" formControlName="instagram" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                   <div>
-                    <label class="customcheck mb-0">Facebook
-                      <input type="checkbox" checked="checked">
+                    <label class="customcheck mb-0" (click)="facebookPosts();">Facebook
+                      <input class="form-check-input" type="checkbox" id="facebook" name="facebook" formControlName="facebook" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
-                  <div>
+                  <!-- <div>
                     <label class="customcheck mb-0">LinkedIn
                       <input type="checkbox" checked="checked">
                       <span class="checkmark"></span>
                     </label>
-                  </div>
+                  </div> -->
                   <div>
-                    <label class="customcheck mb-0">Twitter
-                      <input type="checkbox" checked="checked">
+                    <label class="customcheck mb-0" (click)="twitterPosts();">Twitter
+                      <input class="form-check-input" type="checkbox" id="twitter" name="twitter" formControlName="twitter" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                 </div>
+              </form>
             </div>
             <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 col-12 text-right">
                 <div class="dropdown sorted-by-date">
@@ -46,8 +48,8 @@
                       Sorted by Date
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('desc')">Descending</a>
-                      <a class="dropdown-item" href="javascript:void(0)" (click)="sortArticleData('asc')">Asending</a>
+                      <a class="dropdown-item" href="javascript:void(0)" (click)="sortPostsData('desc')">Descending</a>
+                      <a class="dropdown-item" href="javascript:void(0)" (click)="sortPostsData('asc')">Asending</a>
                     </div>
                   </div>
             </div>
@@ -55,430 +57,41 @@
         <div class="gal mt-4">
 
           <div class="magnify-post-blog">
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/insta.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/tw.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/insta.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/tw.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/insta.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/tw.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/insta.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/tw.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/insta.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/tw.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/insta.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                      <div class="d-flex align-items-center">
-                        <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                        <div class="ml-3">
-                          <h3>Annette Watson<img src="../assets/img/tw.png" alt="" class="ml-2"></h3>
-                          <span>posted in Instagram 5 April at 15:20</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                    </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                      <img src="../assets/img/Rectangle 52.png" alt="" class="w-100 my-3">
-                      <span>Nice day with my friend! #nature #mountains # lake</span>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
-                    <div class="d-flex align-items-center">
-                      <img src="../assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
-                      <div class="ml-3">
-                        <h3>Annette Watson<img src="../assets/img/fb.png" alt="" class="ml-2"></h3>
-                        <span>posted in Instagram 5 April at 15:20</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                    <a href="#"><img src="../assets/img/dots.png" alt=""></a>
-                  </div>
-                  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
-                    <p class="mt-3">Hello everyone. I am in search of a new job for the position of HP manager. I attach the summary. I hope for your likes and reposts.</p>
-                    <a href="#" class="attached"><img src="../assets/img/attach.png" alt="" class="mr-2">Bernard_CV.pdf</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
 
+            <div class="card" *ngFor="let post of filteredPosts;">
+              <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 col-10">
+                      <div class="d-flex align-items-center">
+                        <img *ngIf="post?.profilePicture" src="{{ post?.profilePicture }}" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
+                        <img *ngIf="!post?.profilePicture" src="../frontend/assets/img/Avatar.png" alt="" style="width: 40px;height: 40px;border-radius: 50px;">
+                        <div class="ml-3">
+                          <h3>{{ post?.userName }}
+                            <i *ngIf="post?.postType == 'facebook'" class="fab fa-facebook-f"></i>
+                            <i *ngIf="post?.postType == 'twitter'" class="fab fa-twitter"></i>
+                            <i *ngIf="post?.postType == 'instagram'" class="fab fa-instagram"></i>
+                          </h3>
+                          <span *ngIf="post?.postType == 'facebook'">posted in Facebook on {{ post?.postCreationDate | date: 'MMM d' }} at {{ post?.postCreationDate | date: 'h:mm' }}</span>
+                          <span *ngIf="post?.postType == 'twitter'">posted in Twitter on {{ post?.postCreationDate | date: 'MMM d' }} at {{ post?.postCreationDate | date: 'h:mm' }}</span>
+                          <span *ngIf="post?.postType == 'instagram'">posted in Instagram on {{ post?.postCreationDate | date: 'MMM d' }} at {{ post?.postCreationDate | date: 'h:mm' }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
+                      <a href="javascript:void(0);"><img src="../assets/img/dots.png" alt=""></a>
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
+                      <img *ngIf="post?.postImageUrl" src="{{ post?.postImageUrl }}" alt="" class="w-100 my-3">
+                      <span>{{ post?.postMessage }}</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+           
+          </div>
         
-  </div>
-   </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
