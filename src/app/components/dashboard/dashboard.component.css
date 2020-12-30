@@ -254,3 +254,25 @@
     left: 90px;
     right: 0;
 }
+
+
+.remove-send-email .dropdown-toggle::after{
+    display: none;
+}
+.remove-send-email .dropdown-menu{
+    left: -133px !important;
+}
+.remove-send-email .dropdown-menu:before {
+    left: 139px;
+}
+.remove-send-email .dropdown-item{
+    font-size: 14px;
+    color: #52575C;
+    font-weight: 500;
+}
+.remove-send-email .dropdown-item:hover{
+    background-color: rgba(255,174,135,.1);
+    font-size: 14px;
+    color: #FF7432;
+    font-weight: 500;
+}
