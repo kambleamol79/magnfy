@@ -83,7 +83,16 @@
                       </div>
                     </div>
                     <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="javascript:void(0);" (click)="savePost(post)"><img src="../frontend/assets/img/dots.png" alt=""></a>
+                      <!-- <a href="javascript:void(0);" (click)="savePost(post)"><img src="../assets/img/dots.png" alt=""></a> -->
+                      <div class="dropdown sorted-by-date remove-send-email">
+                        <button class="btn btn-secondary dropdown-toggle m-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="../assets/img/dots.png" alt="">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#"><img src="../assets/img/sendemail.png" alt="" class="mr-2">Send to email</a>
+                          <a class="dropdown-item" href="javascript:void(0);" (click)="savePost(post)"><img src="../assets/img/remove.png" alt="" class="mr-2">Remove</a>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
                       <img *ngIf="post.postImageUrl" src="{{ post.postImageUrl }}" alt="" class="w-100 my-3">
