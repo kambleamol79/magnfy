@@ -78,7 +78,7 @@
                       </div>
                     </div>
                     <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 col-2">
-                      <a href="javascript:void(0);"><img src="../assets/img/dots.png" alt=""></a>
+                      <a href="javascript:void(0);" (click)="deletePost(post.id)"><img src="../frontend/assets/img/dots.png" alt=""></a>
                     </div>
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
                       <img *ngIf="post?.postImageUrl" src="{{ post?.postImageUrl }}" alt="" class="w-100 my-3">

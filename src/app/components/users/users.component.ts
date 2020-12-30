@@ -177,6 +177,11 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  
+  deletePost(postId){
+    this.appService.deletePost(postId).subscribe(res => {
+      console.log(res);
+      this.getAllSocialPosts();
+    });
+  }
 
 }

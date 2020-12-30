@@ -383,6 +383,22 @@ export class AppService {
             }));
     }
 
+    deletePost(id) {
+        return this.http.delete(`${environment.apiUrl}/magnfy_post/${id}`)
+            .pipe(
+            map((res: any) => {
+                this.alertService.success(res['message']);
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
 
 
 }
