@@ -309,5 +309,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  sedPostByEmail(post){
+    let data = { post: post}
+    this.appService.sedPostByEmail(data).subscribe(res => {
+      console.log(res);
+    });
+  }
+
 
 }

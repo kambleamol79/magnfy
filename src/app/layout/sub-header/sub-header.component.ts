@@ -54,6 +54,7 @@ export class SubHeaderComponent implements OnInit {
 
   addInterest(user){
     this.appService.addInterestRequest(user).subscribe(res => {
+      this.searchedUser = [];
       console.log(res);
     });
   }

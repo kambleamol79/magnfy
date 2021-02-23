@@ -399,6 +399,23 @@ export class AppService {
             }));
     }
 
+    sedPostByEmail(data) {
+        let body = data;
+        return this.http.post(`${environment.apiUrl}/send_social_post`, body)
+            .pipe(
+            map((res: any) => {
+                this.alertService.success(res['message']);
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
 
 
 }

@@ -153,6 +153,7 @@ export class InterestComponent implements OnInit {
 
   addInterest(user){
     this._appService.addInterestRequest(user).subscribe(res => {
+      this.searchedUser = [];
       console.log(res);
     });
   }

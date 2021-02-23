@@ -1,39 +1,34 @@
   <div class="panel-header panel-header-sm">
   </div>
   <div class="content">
+    <alert></alert>
     <div class="row">
       <div class="col-md-12">
           <div class="magnify-post-section">
 		        <div class="row align-items-center">
-            <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-12">
+            <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-12" *ngIf="isSortingMethodsRetrieved">
               <form [formGroup]="filterMethodForm">
                 <div class="d-flex justify-content-between align-items-center">
                   <p class="mb-0">Display:</p>
-                  <div>
+                  <div *ngIf="filterMethodForm.get('allposts')">
                     <label class="customcheck mb-0" (click)="AllPosts();">All posts
                       <input class="form-check-input" type="checkbox" id="allposts" name="allposts" formControlName="allposts" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
-                  <div>
+                  <div *ngIf="filterMethodForm.get('instagram')">
                     <label class="customcheck mb-0" (click)="instagramPosts();">Instagram
                       <input class="form-check-input" type="checkbox" id="instagram" name="instagram" formControlName="instagram" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
-                  <div>
+                  <div *ngIf="filterMethodForm.get('facebook')">
                     <label class="customcheck mb-0" (click)="facebookPosts();">Facebook
                       <input class="form-check-input" type="checkbox" id="facebook" name="facebook" formControlName="facebook" value="">
                       <span class="checkmark"></span>
                     </label>
                   </div>
-                  <!-- <div>
-                    <label class="customcheck mb-0">LinkedIn
-                      <input type="checkbox" checked="checked">
-                      <span class="checkmark"></span>
-                    </label>
-                  </div> -->
-                  <div>
+                  <div *ngIf="filterMethodForm.get('twitter')">
                     <label class="customcheck mb-0" (click)="twitterPosts();">Twitter
                       <input class="form-check-input" type="checkbox" id="twitter" name="twitter" formControlName="twitter" value="">
                       <span class="checkmark"></span>
@@ -82,11 +77,11 @@
                       <div class="form-group mb-0">
                       <div class="dropdown sorted-by-date remove-send-email">
                         <button class="btn btn-secondary dropdown-toggle m-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <img src="../assets/img/dots.png" alt="">
+                          <img src="../frontend/assets/img/dots.png" alt="">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#"><img src="../assets/img/sendemail.png" alt="" class="mr-2">Send to email</a>
-                          <a class="dropdown-item" href="javascript:void(0);" (click)="deletePost(post.id)"><img src="../assets/img/remove.png" alt="" class="mr-2">Remove</a>
+                          <a class="dropdown-item" href="javascript:void(0);" (click)="sedPostByEmail(post)"><img src="../frontend/assets/img/sendemail.png" alt="" class="mr-2">Send to email</a>
+                          <a class="dropdown-item" href="javascript:void(0);" (click)="deletePost(post.id)"><img src="../frontend/assets/img/remove.png" alt="" class="mr-2">Remove</a>
                         </div>
                       </div>
                     </div>
