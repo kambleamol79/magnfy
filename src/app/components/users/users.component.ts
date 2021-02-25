@@ -54,9 +54,9 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  AllPosts(){   
-    this.filteredPosts = [];
-    if(this.filterMethodForm.controls['allposts'] && this.filterMethodForm.controls['allposts'].value == true){
+  AllPosts(e: any){    
+    if(e.srcElement.checked == true){
+      this.filteredPosts = [];
       if(this.filterMethodForm.controls['facebook']){
         this.filterMethodForm.controls['facebook'].patchValue(true);
         this.filterMethodForm.controls['facebook'].updateValueAndValidity();
@@ -70,59 +70,13 @@ export class UsersComponent implements OnInit {
         this.filterMethodForm.controls['instagram'].updateValueAndValidity();
       }
       this.filteredPosts =  this.allPosts;
-    }else{
-
-      if(this.filterMethodForm.controls['facebook'] && this.filterMethodForm.controls['facebook'].value == false){
-        this.filteredPosts =  this.allPosts.filter((item) => {
-          if(item.postType != 'facebook'){
-            return item;
-          }        
-        });
-      }else{
-        this.filteredPosts =  this.allPosts.filter((item) => {
-          if(item.postType == 'facebook'){
-            return item;
-          }        
-        });
-      }
-
-      if(this.filterMethodForm.controls['twitter'] && this.filterMethodForm.controls['twitter'].value == false){
-        this.filteredPosts =  this.allPosts.filter((item) => {
-          if(item.postType != 'twitter'){
-            return item;
-          }        
-        });
-      }else{
-        this.filteredPosts =  this.allPosts.filter((item) => {
-          if(item.postType == 'twitter'){
-            return item;
-          }        
-        });
-      } 
-  
-      if(this.filterMethodForm.controls['instagram'] && this.filterMethodForm.controls['instagram'].value == false){
-        this.filteredPosts =  this.allPosts.filter((item) => {
-          if(item.postType != 'instagram'){
-            return item;
-          }        
-        });
-      }else{
-        this.filteredPosts =  this.allPosts.filter((item) => {
-          if(item.postType == 'instagram'){
-            return item;
-          }        
-        });
-      }
-    }   
+    }
   }
 
-  facebookPosts(){
+  facebookPosts(e: any){
     this.filteredPosts = [];
-    if(this.filterMethodForm.value.facebook == false){
-      this.filteredPosts =  this.allPosts.filter((item) => {
-        if(item.postType == 'facebook'){
-          return item;
-        }  
+    if(e.srcElement.checked == false){
+      this.filteredPosts =  this.allPosts.filter((item) => {  
         if((this.filterMethodForm.controls['instagram'] && this.filterMethodForm.controls['instagram'].value == true) && item.postType == 'instagram'){
           return item;
         }  
@@ -133,44 +87,51 @@ export class UsersComponent implements OnInit {
       });
     }else{
       this.filteredPosts =  this.allPosts.filter((item) => {
-        if(item.postType != 'facebook'){
+        if(item.postType == 'facebook'){
+          return item;
+        }   
+        if((this.filterMethodForm.controls['instagram'] && this.filterMethodForm.controls['instagram'].value == true) && item.postType == 'instagram'){
+          return item;
+        }  
+        
+        if((this.filterMethodForm.controls['twitter'] && this.filterMethodForm.controls['twitter'].value == true) && item.postType == 'twitter'){
           return item;
         }        
       });      
     }
   }
 
-  twitterPosts(){
+  twitterPosts(e: any){
     this.filteredPosts = [];
-    if(this.filterMethodForm.value.twitter == false){
+    if(e.srcElement.checked == false){
       this.filteredPosts =  this.allPosts.filter((item) => {
-        if(item.postType == 'twitter'){
-          return item;
-        }
         if((this.filterMethodForm.controls['instagram'] && this.filterMethodForm.controls['instagram'].value == true) && item.postType == 'instagram'){
           return item;
-        }  
-        
+        }        
         if(( this.filterMethodForm.controls['facebook'] && this.filterMethodForm.controls['facebook'].value == true) && item.postType == 'facebook'){
           return item;
         }          
       });
     }else{
       this.filteredPosts =  this.allPosts.filter((item) => {
-        if(item.postType != 'twitter'){
+        if(item.postType == 'twitter'){
+          return item;
+        } 
+        if((this.filterMethodForm.controls['instagram'] && this.filterMethodForm.controls['instagram'].value == true) && item.postType == 'instagram'){
+          return item;
+        }
+        
+        if(( this.filterMethodForm.controls['facebook'] && this.filterMethodForm.controls['facebook'].value == true) && item.postType == 'facebook'){
           return item;
         }        
       });
     }
   }
 
-  instagramPosts(){
+  instagramPosts(e: any){
     this.filteredPosts = [];
-    if(this.filterMethodForm.value.instagram == false){
+    if(e.srcElement.checked == false){
       this.filteredPosts =  this.allPosts.filter((item) => {
-        if(item.postType == 'instagram'){
-          return item;
-        }
         if((this.filterMethodForm.controls['twitter'] && this.filterMethodForm.controls['twitter'].value == true) && item.postType == 'twitter'){
           return item;
         }        
@@ -180,12 +141,17 @@ export class UsersComponent implements OnInit {
       });
     }else{
       this.filteredPosts =  this.allPosts.filter((item) => {
-        if(item.postType != 'instagram'){
+        if(item.postType == 'instagram'){
+          return item;
+        }  
+        if((this.filterMethodForm.controls['twitter'] && this.filterMethodForm.controls['twitter'].value == true) && item.postType == 'twitter'){
           return item;
         }        
+        if(( this.filterMethodForm.controls['facebook'] && this.filterMethodForm.controls['facebook'].value == true) && item.postType == 'facebook'){
+          return item;
+        }      
       });
     }
-    console.log(this.filterMethodForm.value);
   }
 
   getAllSocialPosts(){
@@ -193,7 +159,7 @@ export class UsersComponent implements OnInit {
       console.log(res);
       if(res.status == true){
         this.allPosts = res.data.data;
-        this.AllPosts();
+        this.filteredPosts = res.data.data;
       }
     });
   }

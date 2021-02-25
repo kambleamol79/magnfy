@@ -11,26 +11,26 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <p class="mb-0">Display:</p>
                   <div *ngIf="filterMethodForm.get('allposts')">
-                    <label class="customcheck mb-0" (click)="AllPosts();">All posts
-                      <input class="form-check-input" type="checkbox" id="allposts" name="allposts" formControlName="allposts" value="">
+                    <label class="customcheck mb-0">All posts
+                      <input class="form-check-input" type="checkbox" id="allposts" name="allposts" formControlName="allposts" (change)="AllPosts($event)">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                   <div *ngIf="filterMethodForm.get('instagram')">
-                    <label class="customcheck mb-0" (click)="instagramPosts();">Instagram
-                      <input class="form-check-input" type="checkbox" id="instagram" name="instagram" formControlName="instagram" value="">
+                    <label class="customcheck mb-0">Instagram
+                      <input class="form-check-input" type="checkbox" id="instagram" name="instagram" formControlName="instagram" (change)="instagramPosts($event)">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                   <div *ngIf="filterMethodForm.get('facebook')">
-                    <label class="customcheck mb-0" (click)="facebookPosts();">Facebook
-                      <input class="form-check-input" type="checkbox" id="facebook" name="facebook" formControlName="facebook" value="">
+                    <label class="customcheck mb-0">Facebook
+                      <input class="form-check-input" type="checkbox" id="facebook" name="facebook" formControlName="facebook" (change)="facebookPosts($event)">
                       <span class="checkmark"></span>
                     </label>
                   </div>
                   <div *ngIf="filterMethodForm.get('twitter')">
-                    <label class="customcheck mb-0" (click)="twitterPosts();">Twitter
-                      <input class="form-check-input" type="checkbox" id="twitter" name="twitter" formControlName="twitter" value="">
+                    <label class="customcheck mb-0">Twitter
+                      <input class="form-check-input" type="checkbox" id="twitter" name="twitter" formControlName="twitter" (change)="twitterPosts($event)">
                       <span class="checkmark"></span>
                     </label>
                   </div>
