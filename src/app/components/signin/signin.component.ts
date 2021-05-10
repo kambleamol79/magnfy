@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../_services';
+import { AuthService, AppService, AlertService } from '../../_services';
 import { Router} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';  
 
@@ -16,7 +16,7 @@ export class SigninComponent implements OnInit {
   isRemeberChecked: boolean = false;
   show: boolean = false;
 
-  constructor( private router: Router, public fb: FormBuilder, private _authService: AuthService, private cookieService: CookieService) {
+  constructor( private router: Router, public fb: FormBuilder, private _authService: AuthService, private _appService: AppService, private cookieService: CookieService, private alertService: AlertService) {
       let cookieToken = this.cookieService.get('authToken');
       const user = JSON.parse(localStorage.getItem('auth'));
       if(user && (cookieToken == user.access_token)){
@@ -52,11 +52,24 @@ export class SigninComponent implements OnInit {
       if(res){
         if(this.isRemeberChecked === true){
           this.cookieService.set('authToken', res.access_token); 
-        }
-        
-        this.router.navigate(['/dashboard']);
+        }        
+        this.getMyProfileData();
       }
       
+    });
+  }
+
+  getMyProfileData(){
+    this._appService.getMyProfile().subscribe(res => {
+      
+      if(res['status'] == true){
+        if(res['data']['data']['approved'] == 1){
+          this.router.navigate(['/dashboard']);
+        }else{
+          this._authService.logout();
+          this.alertService.error('Your account is in review, Please try after sometime.');
+        }
+      }
     });
   }
 

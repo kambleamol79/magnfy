@@ -35,6 +35,12 @@ import { TwConvertDatePipe } from './_helpers/tw-convert-date.pipe';
 import { ChartsModule } from 'ng2-charts';
 import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 import { UsersComponent } from './components/users/users.component';
+import { ImageViewerComponent } from './components/image-viewer/image-viewer.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 @NgModule({
   declarations: [
@@ -54,6 +60,9 @@ import { UsersComponent } from './components/users/users.component';
     SettingComponent,
     UsersComponent,
     TwConvertDatePipe,
+    ImageViewerComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [   
     BrowserModule,
@@ -66,7 +75,12 @@ import { UsersComponent } from './components/users/users.component';
     AngularFirestoreModule,
     ChartsModule,
     NgImageFullscreenViewModule,
+    ShareButtonsModule.withConfig({
+      debug: false
+    }),
+    ShareIconsModule,
     ModalModule.forRoot(),
+    
   ],
   providers: [ 
     AuthService, 

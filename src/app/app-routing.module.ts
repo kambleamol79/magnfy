@@ -10,6 +10,8 @@ import { AuthGuard } from './_helpers';
 import { CommonModule } from "@angular/common";
 import { HelpComponent } from './components/help/help.component';
 import { SettingComponent } from './components/setting/setting.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,12 @@ const routes: Routes = [
   },
   {
     path: 'signup', component: SignupComponent
+  },
+  {
+    path: 'forgot-password', component: ForgotPasswordComponent
+  },
+  {
+    path: 'reset-password', component: ResetPasswordComponent
   },
   {
     path: 'magnfy', component: UsersComponent, canActivate: [AuthGuard]

@@ -47,6 +47,7 @@
                     <input type="email" class="form-control" placeholder="example@gmail.com" name="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" formControlName="email" >
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                       <div *ngIf="f.email.errors.required">Email field is required</div>
+                      <div *ngIf="f.email.errors.pattern">Enter valid email-Id</div>
                     </div>
                   </div>
                 </div>

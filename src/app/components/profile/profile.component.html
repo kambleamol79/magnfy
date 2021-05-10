@@ -201,7 +201,7 @@
                                     
                                 <div class="mt-3">
                                     <p>Share Magnfy Sign Up link with team members</p>
-                                    <a href="#" class="btn-orange">Share Magnfy</a>
+                                    <a href="javascript:void(0);" class="btn-orange" (click)="openModal(step1)">Share Magnfy</a>
                                 </div>
                             </div>
                         </div>
@@ -237,6 +237,10 @@
                     </div>
                 </div>
             </div>
+
+            <ng-template #step1>
+                <share-buttons theme="material-dark" show="11" image="https://server.ashoresystems.com/~magnfy/frontend/"></share-buttons>
+            </ng-template>
 
         </div>
     </div>

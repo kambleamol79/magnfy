@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SocialAuthService, FacebookLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
@@ -6,6 +6,7 @@ import { FacebookService, AuthService, AppService } from '../../_services';
 import { Router} from '@angular/router';
 import { trimValidator } from '../../_helpers';
 import { environment } from '../../../environments/environment';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit {
   userDataForm: FormGroup;
   userAboutMeForm: FormGroup;
   userImageDataForm: FormGroup;
+  modalRef: BsModalRef;
   /*userSocialDataForm: FormGroup;*/
   imageUrl: any;
   submitted1: boolean = false;
@@ -32,7 +34,8 @@ export class ProfileComponent implements OnInit {
     public authService: AuthService,
     public appServiceL: AppService,
     public fb: FormBuilder,
-   private cd: ChangeDetectorRef
+   private cd: ChangeDetectorRef,
+   private modalService: BsModalService
     ) { }
 
   ngOnInit(): void {
@@ -169,10 +172,12 @@ export class ProfileComponent implements OnInit {
         if(this.userSocialData['data'].length == 0){
           this.appServiceL.addMySocialAccounts(faceboobAccountDetails).subscribe(res => {
             console.log(res);
+            this.router.navigate(['dashboard']);
           });
         }else{
           this.appServiceL.updateSocialAccounts(faceboobAccountDetails).subscribe(res => {
             console.log(res);
+            this.router.navigate(['dashboard']);
           });
         }
 
@@ -203,10 +208,12 @@ export class ProfileComponent implements OnInit {
         if(this.userSocialData['data'].length == 0){
           this.appServiceL.addMySocialAccounts(twitterAccountDetails).subscribe(res => {
             console.log(res);
+            this.router.navigate(['dashboard']);
           });
         }else{
           this.appServiceL.updateSocialAccounts(twitterAccountDetails).subscribe(res => {
             console.log(res);
+            this.router.navigate(['dashboard']);
           });
         }
       });
@@ -217,6 +224,10 @@ export class ProfileComponent implements OnInit {
 
   signOut(): void {
     this.socialAuthService.signOut();
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
 }

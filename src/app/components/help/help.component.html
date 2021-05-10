@@ -37,22 +37,19 @@
                        
                         <div class="tab-pane active" id="link1" aria-expanded="false">
                             <div class="my-interst-tab">
-                                <div class="row" *ngFor="let data of tab1;  let i = index">
+                                <div class="row" *ngFor="let data1 of tab1;  let i = index">
                                     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 col-12">
                                         <div>
-                                            <h2 class="mb-3">{{ i+1 }}. {{ data.title }}</h2>
-                                            <p>{{ data.description }}</p>
+                                            <h2 class="mb-3">{{ i+1 }}. {{ data1.title }}</h2>
+                                            <p>{{ data1.description }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12 my-interst-popup">
                                         <div class="mb-4">
-                                            <img src="{{ imageUrl }}{{data.image }}" (click)="showLightbox(0)" alt="" class="w-100">
-                                            <ng-image-fullscreen-view
-                                                [images]="imageObject1"
-                                                [imageIndex]="selectedImageIndex"
-                                                [show]="showFlag"
-                                                (close)="closeEventHandler()">
-                                            </ng-image-fullscreen-view>
+                                            <app-image-viewer [imageURL]="getImageUrl(data1.image)" [open]="viewerOpen" (close)="viewerOpen = false"></app-image-viewer>
+                                            <div class="image-container" (click)="viewerOpen = true">
+                                                <img [src]="getImageUrl(data1.image)"/>
+                                            </div>                                           
                                         </div>
                                         
                                     </div>
@@ -61,22 +58,19 @@
                         </div>
                         <div class="tab-pane" id="link2" aria-expanded="true">
                             <div class="my-interst-tab">
-                                <div class="row" *ngFor="let data of tab2;  let i = index">
+                                <div class="row" *ngFor="let data2 of tab2;  let i = index">
                                     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 col-12">
                                         <div>
-                                            <h2 class="mb-3">{{ i+1 }}. {{ data.title }}</h2>
-                                            <p>{{ data.description }}</p>
+                                            <h2 class="mb-3">{{ i+1 }}. {{ data2.title }}</h2>
+                                            <p>{{ data2.description }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12 my-interst-popup">
                                         <div class="mb-4">
-                                            <img src="{{ imageUrl }}{{data.image }}" (click)="showLightbox(0)" alt="" class="w-100">
-                                            <ng-image-fullscreen-view
-                                                [images]="imageObject2"
-                                                [imageIndex]="selectedImageIndex"
-                                                [show]="showFlag"
-                                                (close)="closeEventHandler()">
-                                            </ng-image-fullscreen-view>
+                                            <app-image-viewer [imageURL]="getImageUrl(data2.image)" [open]="viewerOpen" (close)="viewerOpen = false"></app-image-viewer>
+                                            <div class="image-container" (click)="viewerOpen = true">
+                                                <img [src]="getImageUrl(data2.image)"/>
+                                            </div> 
                                         </div>
                                         
                                     </div>
@@ -85,22 +79,19 @@
                         </div>
                         <div class="tab-pane" id="link3" aria-expanded="false">
                             <div class="my-interst-tab">
-                                <div class="row" *ngFor="let data of tab3;  let i = index">
+                                <div class="row" *ngFor="let data3 of tab3;  let i = index">
                                     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 col-12">
                                         <div>
-                                            <h2 class="mb-3">{{ i+1 }}. {{ data.title }}</h2>
-                                            <p>{{ data.description }}</p>
+                                            <h2 class="mb-3">{{ i+1 }}. {{ data3.title }}</h2>
+                                            <p>{{ data3.description }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12 my-interst-popup">
                                         <div class="mb-4">
-                                            <img src="{{ imageUrl }}{{data.image }}" (click)="showLightbox(0)" alt="" class="w-100">
-                                            <ng-image-fullscreen-view
-                                                [images]="imageObject3"
-                                                [imageIndex]="selectedImageIndex"
-                                                [show]="showFlag"
-                                                (close)="closeEventHandler()">
-                                            </ng-image-fullscreen-view>
+                                            <app-image-viewer [imageURL]="getImageUrl(data3.image)" [open]="viewerOpen" (close)="viewerOpen = false"></app-image-viewer>
+                                            <div class="image-container" (click)="viewerOpen = true">
+                                                <img [src]="getImageUrl(data3.image)"/>
+                                            </div> 
                                         </div>
                                         
                                     </div>
@@ -109,22 +100,19 @@
                         </div>
                         <div class="tab-pane" id="link4" aria-expanded="false">
                             <div class="my-interst-tab">
-                                <div class="row" *ngFor="let data of tab4;  let i = index">
+                                <div class="row" *ngFor="let data4 of tab4;  let i = index">
                                     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 col-12">
                                         <div>
-                                            <h2 class="mb-3">{{ i+1 }}. {{ data.title }}</h2>
-                                            <p>{{ data.description }}</p>
+                                            <h2 class="mb-3">{{ i+1 }}. {{ data4.title }}</h2>
+                                            <p>{{ data4.description }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12 my-interst-popup">
                                         <div class="mb-4">
-                                            <img src="{{ imageUrl }}{{data.image }}" (click)="showLightbox(0)" alt="" class="w-100">
-                                            <ng-image-fullscreen-view
-                                                [images]="imageObject4"
-                                                [imageIndex]="selectedImageIndex"
-                                                [show]="showFlag"
-                                                (close)="closeEventHandler()">
-                                            </ng-image-fullscreen-view>
+                                            <app-image-viewer [imageURL]="getImageUrl(data4.image)" [open]="viewerOpen" (close)="viewerOpen = false"></app-image-viewer>
+                                            <div class="image-container" (click)="viewerOpen = true">
+                                                <img [src]="getImageUrl(data4.image)"/>
+                                            </div> 
                                         </div>
                                         
                                     </div>

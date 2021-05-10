@@ -17,6 +17,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMySortingMethodsData();
+    this.getAllSocialPosts();
     
   }
 
@@ -165,10 +166,13 @@ export class UsersComponent implements OnInit {
   }
 
   deletePost(postId){
-    this.appService.deletePost(postId).subscribe(res => {
-      console.log(res);
-      this.getAllSocialPosts();
-    });
+    if(confirm('Are you sure, you want to remove this post?')){
+      this.appService.deletePost(postId).subscribe(res => {
+        console.log(res);
+        this.getAllSocialPosts();
+      });
+    }
+    
   }
 
   sedPostByEmail(post){

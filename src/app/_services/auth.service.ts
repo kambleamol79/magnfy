@@ -79,6 +79,38 @@ export class AuthService {
             }));
     }
 
+    forgot_password(email) {
+        let body = { email: email }
+        return this.http.post(`${environment.apiUrl}/forgot_password`, body)
+            .pipe(
+            map((res: any) => {
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+    reset_password(body) {
+        return this.http.post(`${environment.apiUrl}/reset_password`, body)
+            .pipe(
+            map((res: any) => {
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
+
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('auth');
