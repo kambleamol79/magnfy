@@ -68,7 +68,7 @@
                                             <input type="text" class="form-control" id="city" name="city" formControlName="city">
                                             <div *ngIf="submitted1 && f1.city.errors" class="invalid-feedback">
                                                 <div *ngIf="f1.city.errors.required">Location is required</div>
-                                                <div *ngIf="f1.city.errors.trimError">Please enter valid location</div>
+                                                <div *ngIf="f1.city.errors.pattern">Please enter valid location</div>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12">
+                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-12" *ngIf="userData.usertype !='Business'">
                     <div class="card">
                         <div class="card-body">
                             <div class="show-magnify-profile text-center">
@@ -239,7 +239,59 @@
             </div>
 
             <ng-template #step1>
-                <share-buttons theme="material-dark" show="11" image="https://server.ashoresystems.com/~magnfy/frontend/"></share-buttons>
+                <form [formGroup]="InterestForm" (ngSubmit)="onSubmit()">
+                <div class="modal-header text-center">
+                    <h4>Share Magnfy</h4>
+                </div>
+                <div class="modal-body" >
+                  <div class="row" style="display: inline-flex;">
+                  <div class="card ">    
+                    <div class="card-body ">
+                      <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
+                                <div class="form-group mb-0">
+                                    <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                                    <div *ngIf="submitted2 && f2.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f2.email.errors.required">Email is required</div>
+                                        <div *ngIf="f2.email.errors.pattern">Enter valid email address</div>
+                                        <div *ngIf="f1.email.errors.trimError">Please enter valid email address</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12 col-form-label">Recipient</label>  
+                        </div>
+      
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12">
+                                <div class="form-group mb-0">
+                                    <textarea rows="4" cols="80" class="form-control" placeholder="" id="message" name="message" formControlName="message"></textarea>
+                                    <div *ngIf="submitted2 && f2.message.errors" class="invalid-feedback">
+                                        <div *ngIf="f2.message.errors.required">Message is required</div>
+                                        <div *ngIf="f1.message.errors.trimError">Please enter valid message</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-12 col-form-label">Message</label>
+      
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 col-12 text-center">
+                      <div class="container">
+                          <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+      
+                          <button type="submit" class="btn btn-primary" >Share</button>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+                </form>
             </ng-template>
 
         </div>

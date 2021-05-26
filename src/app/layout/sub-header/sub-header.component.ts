@@ -13,6 +13,10 @@ export class SubHeaderComponent implements OnInit {
   imageUrl: any;
   user: any;
   searchedUser: any = [];
+  allSearchedResult: any = [];
+  showall: boolean = false;
+  showResult: boolean = false;
+
   constructor(private appService: AppService, private authService: AuthService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
@@ -30,26 +34,36 @@ export class SubHeaderComponent implements OnInit {
     this.cookieService.deleteAll();
   }
 
-  search(event: any){
+  search(event: any){ 
     
     let input = event.target.value;
     if(input == ''){
       this.searchedUser = [];
       return;
     }
-    //Request body
-    let data = { 'name': input, 'email': input };
-    this.appService.getInterestBySearch(data).subscribe(res => {
-      if(res['status']){
-        this.searchedUser = [];
-        this.searchedUser = res['data']['result'];
-      }
-    });
+    if(input.length % 3 == 0){
+      //Request body
+      let data = { 'name': input, 'email': input };
+      this.appService.getInterestBySearch(data).subscribe(res => {
+        if(res['status']){
+          this.searchedUser = [];
+          this.searchedUser = res['data']['result'].slice(0, 6);
+          this.allSearchedResult = res['data']['result'];
+          this.showResult = true;
+        }
+      });
+    }
 
   }
 
   closeSearch(event: any){
     this.searchedUser = [];
+  }
+
+  showAll(event: any){
+    this.searchedUser = [];
+    this.searchedUser = [ ...this.allSearchedResult ];
+    this.showall = true;
   }
 
   addInterest(user){
@@ -58,5 +72,12 @@ export class SubHeaderComponent implements OnInit {
       console.log(res);
     });
   }
+
+  focusout(event: any){
+    console.log(event);
+    this.showResult = false;
+    this.showall = false;
+  }
+
 
 }

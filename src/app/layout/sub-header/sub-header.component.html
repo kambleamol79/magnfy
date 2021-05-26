@@ -16,7 +16,6 @@
       <span class="navbar-toggler-bar navbar-kebab"></span>
     </button>
 
-
     <div class="app-search dropdown d-lg-block seach-form-dropdown">
 
       <div class="input-group">
@@ -24,68 +23,67 @@
           <img src="../frontend/assets/img/search.png" alt="">
       </div>
 
-      <div class="dropdown-menu dropdown-menu-animated dropdown-lg py-0 d-block style-3" id="search-dropdown" *ngIf="searchedUser.length > 0">
+      <div tabindex="0" class="dropdown-menu dropdown-menu-animated dropdown-lg py-0 d-block style-3" id="search-dropdown" *ngIf="allSearchedResult.length > 0" (focusout)="focusout($event)" [style.visibility]="!showResult ? 'hidden' : 'visible' ">
         <div href="javascript:void(0);" class="dropdown-item notify-item" *ngFor="let user of searchedUser">
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center">
-                <img *ngIf="user && user.image" src="{{ imageUrl }}" alt="..." style="width: 25px;height: 25px;border-radius: 50px">
-                <img *ngIf="user && !user.image" src="../frontend/assets/img/default-avatar.png" alt="..." style="width: 25px;height: 25px;border-radius: 50px">
-                <p class="mb-0 px-2 name-user">{{ user.name }}</p>
-                <img src="../frontend/assets/img/search-icon1.png" alt="" class="px-2" *ngIf="user && user.instagram_token">
-                <!-- <img src="../frontend/assets/img/search-icon2.png" alt="" class="px-2"> -->
-                <img src="../frontend/assets/img/search-icon3.png" alt="" class="px-2" *ngIf="user && user.facebook_token">
-                <img src="../frontend/assets/img/search-icon4.png" alt="" class="px-2" *ngIf="user && user.twitter_token">
-              </div>
-              <a href="javascript:void(0);" (click)="addInterest(user)">
-                <img src="../frontend/assets/img/user plus.png" alt="" class="on-hover">
-              </a>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <img *ngIf="user && user.image" src="{{ imageUrl }}" alt="..." style="width: 25px;height: 25px;border-radius: 50px">
+              <img *ngIf="user && !user.image" src="../frontend/assets/img/default-avatar.png" alt="..." style="width: 25px;height: 25px;border-radius: 50px">
+              <p class="mb-0 px-2 name-user">{{ user.name }}</p>
+              <img src="../frontend/assets/img/search-icon1.png" alt="" class="px-2" *ngIf="user && user.instagram_token">
+              <!-- <img src="../frontend/assets/img/search-icon2.png" alt="" class="px-2"> -->
+              <img src="../frontend/assets/img/search-icon3.png" alt="" class="px-2" *ngIf="user && user.facebook_token">
+              <img src="../frontend/assets/img/search-icon4.png" alt="" class="px-2" *ngIf="user && user.twitter_token">
             </div>
+            <a href="javascript:void(0);" (click)="addInterest(user)">
+              <img src="../frontend/assets/img/user plus.png" alt="" class="on-hover">
+            </a>
           </div>
-        <!-- <a class="dropdown-item" href="#">
+        </div>
+        <a class="dropdown-item" href="javascript:void(0);" *ngIf="allSearchedResult.length > 6 && !showall" (click)="showAll();">
           <div class="text-center">
-            <p class="mb-0 see-all-result" style="font-size: 18px;">See all results (19)</p>
+            <p class="mb-0 see-all-result" style="font-size: 18px;">See all results ({{ allSearchedResult.length }})</p>
           </div>
-        </a> -->
+        </a>
       </div>
       
     </div>
-
       
-      <div class="collapse navbar-collapse justify-content-end align-items-center" id="navigation">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle d-flex align-items-center" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-right mr-3">
-                  <h3 class="mb-0">{{ user?.name}}</h3>
-                  <p class="mb-0">{{ user?.works_at}}</p>
-                </div>
-                <a href="javascript:;" class="avatar rounded-circle">
-                  <img *ngIf="user && user.image" src="{{ imageUrl }}" alt="...">
-                  <img *ngIf="user && !user.image" src="../frontend/assets/img/default-avatar.png" alt="...">
-                </a>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
-              <!-- <a class="dropdown-item" (click)="onLogout()">Logout</a> -->
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" >
-              <img src="../frontend/assets/img/line.png" alt="" style="height: 37px;">
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <img src="../frontend/assets/img/notifications.png" alt="">
-            </a>
-          </li>
-          <li class="nav-item" (click)="onLogout()">
-            <a class="nav-link" href="javascript:void(0);">
-              <img src="../frontend/assets/img/logout.png" alt="">
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse justify-content-end align-items-center" id="navigation">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="text-right mr-3">
+                <h3 class="mb-0">{{ user?.name}}</h3>
+                <p class="mb-0">{{ user?.works_at}}</p>
+              </div>
+              <a href="javascript:;" class="avatar rounded-circle">
+                <img *ngIf="user && user.image" src="{{ imageUrl }}" alt="...">
+                <img *ngIf="user && !user.image" src="../frontend/assets/img/default-avatar.png" alt="...">
+              </a>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
+            <!-- <a class="dropdown-item" (click)="onLogout()">Logout</a> -->
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" >
+            <img src="../frontend/assets/img/line.png" alt="" style="height: 37px;">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <img src="../frontend/assets/img/notifications.png" alt="">
+          </a>
+        </li>
+        <li class="nav-item" (click)="onLogout()">
+          <a class="nav-link" href="javascript:void(0);">
+            <img src="../frontend/assets/img/logout.png" alt="">
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!-- End Navbar -->

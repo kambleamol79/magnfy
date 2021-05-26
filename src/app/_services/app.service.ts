@@ -75,6 +75,24 @@ export class AppService {
             }));
     }
 
+
+    shareMagnfy(data) {
+        let body = data;
+        return this.http.post(`${environment.apiUrl}/share_magnfy`, body)
+            .pipe(
+            map((res: any) => {
+                this.alertService.success(res['message']);
+                return res;            
+            }),
+            catchError((err) => {            
+                console.log(err);   
+                this.alertService.clear();      
+                this.alertService.error(err);      
+                const error = err.error?.message || err.statusText;
+                return throwError(error);
+            }));
+    }
+
     getMySocialAccounts() {
         return this.http.get(`${environment.apiUrl}/get_my_social_accounts`)
             .pipe(

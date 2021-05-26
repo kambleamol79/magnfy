@@ -121,3 +121,89 @@
     font-weight: 600;
 }
 
+.modal-header{
+    background: #F6F6F6;
+    padding: 45px 24px 10px 24px;
+}
+.modal-body{
+    background: #F6F6F6;
+}
+.modal-dialog {
+    max-width: 645px;
+}
+.modal-header h4{
+    font-size: 24px;
+    color: #000000;
+    font-weight: 600;
+    margin: 0px;
+}
+.modal-header p{
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+}
+.modal-header{
+    display: block;
+}
+.modal-body .card-body input{
+    border-radius: 0;
+    border:none;
+    padding: 0;
+    font-size: 18px;
+    color: #2F2F2F;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+.modal-body .card-body textarea{
+    border-radius: 0;
+    border:none;
+    padding: 0;
+    font-size: 18px;
+    color: #2F2F2F;
+    font-weight: 500;
+}
+.modal-body .card-body label{
+    text-align: left;
+    max-width: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 500;
+    padding-top: 3px;
+}
+.modal-body .card{
+    padding: 18px;
+    height: 285px;
+}
+
+.modal-body .btn.btn-primary{
+    background: #FF7432;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 32px;
+    width: 120px;
+    text-align: center;
+}
+.modal-body .btn.btn-default{
+    background: #fff;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #A6ACBE;
+    font-weight: 600;
+    padding: 12px 32px;
+    border:2px solid #A6ACBE;
+    width: 120px;
+    text-align: center;
+}
+form{
+    width: 640px;
+}
+
+
+.date-added .dropdown-menu:before {
+    left: 129px;
+}
+

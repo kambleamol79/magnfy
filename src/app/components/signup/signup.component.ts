@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../../_helpers';
 import { AuthService } from '../../_services';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,14 +13,19 @@ export class SignupComponent implements OnInit {
 
   registrationForm: FormGroup;
   submitted = false;
+  user_email: string
 
-  constructor(public fb: FormBuilder, private _authService: AuthService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, public fb: FormBuilder, private _authService: AuthService) {
   }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.user_email = params['email'];
+    });
     this.registrationForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9 ]*((-|\s)*[_A-z0-9 ])*$')]],
       email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$')]],
+      user_email: [this.user_email],
       usertype: ['Personal', [Validators.required]],
       password: ['', [Validators.required, Validators.pattern('^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d!$%@#£€*?&]{8,}$')]],
       password_confirmation: ['', Validators.required]

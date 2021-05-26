@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   userDataForm: FormGroup;
   userAboutMeForm: FormGroup;
   userImageDataForm: FormGroup;
+  InterestForm: FormGroup;
   modalRef: BsModalRef;
   /*userSocialDataForm: FormGroup;*/
   imageUrl: any;
@@ -44,7 +45,12 @@ export class ProfileComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(2), Validators.pattern('^[_A-z0-9 ]*((-|\s)*[_A-z0-9 ])*$'), trimValidator],],
       username: ['', [Validators.required, trimValidator]],
       works_at: ['', [Validators.required, trimValidator]],
-      city: ['', [Validators.required, trimValidator]],
+      city: ['', [Validators.required, trimValidator, Validators.pattern('^[_A-z ]*((-|\s)*[_A-z ])*$')]],
+    });
+
+    this.InterestForm = this.fb.group({      
+      email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$'), trimValidator]],
+      message: ['', [Validators.required, trimValidator]],
     });
 
     this.userAboutMeForm = this.fb.group({
@@ -52,7 +58,7 @@ export class ProfileComponent implements OnInit {
     });
 
     /*this.userSocialDataForm = this.fb.group({      
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'), trimValidator]],
+      email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$'), trimValidator]],
       message: ['', [Validators.required, trimValidator]],
       subject: ['', [Validators.required, trimValidator]],      
     });*/
@@ -94,6 +100,10 @@ export class ProfileComponent implements OnInit {
 
   get f1() {
     return this.userDataForm.controls;
+  }
+
+  get f2() {
+    return this.InterestForm.controls;
   }
 
   /*get f2() {
@@ -228,6 +238,27 @@ export class ProfileComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  onSubmit(): void { 
+    
+    // stop here if form is invalid
+    if (this.InterestForm.invalid) {
+      return;
+    }
+
+    let data = { ...this.InterestForm.value }
+    data.user_email = this.userData['email'];
+
+    this.appServiceL.shareMagnfy(data).subscribe(res => {
+      console.log(res);
+      this.closeModal();
+    });
+
+  }
+
+  closeModal(modalId?: number){
+    this.modalService.hide(modalId);
   }
 
 }

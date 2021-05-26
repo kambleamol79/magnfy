@@ -33,7 +33,6 @@ export class UsersComponent implements OnInit {
           }
         });
         group['allposts']=new FormControl(true);
-        console.log(group);
         this.filterMethodForm = new FormGroup(group);
         this.isSortingMethodsRetrieved = true;
         this.getAllSocialPosts();
@@ -157,10 +156,33 @@ export class UsersComponent implements OnInit {
 
   getAllSocialPosts(){
     this.appService.getAllSocialPosts().subscribe(res => {
-      console.log(res);
+      
       if(res.status == true){
         this.allPosts = res.data.data;
-        this.filteredPosts = res.data.data;
+        this.filteredPosts = [];
+        if(this.filterMethodForm.controls['twitter']){
+          //this.filteredPosts = 
+          this.allPosts.map(item => {
+            if(item.postType == 'twitter'){
+              this.filteredPosts.push(item);
+            }
+          });
+        }        
+        if(this.filterMethodForm.controls['facebook']){
+          this.allPosts.map(item => {
+            if(item.postType == 'facebook'){
+              this.filteredPosts.push(item);
+            }
+          });
+        }
+        if(this.filterMethodForm.controls['instagram']){
+          this.allPosts.map(item => {
+            if(item.postType == 'instagram'){
+              this.filteredPosts.push(item);
+            }
+          });
+        }
+        
       }
     });
   }
